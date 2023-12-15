@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action="/princess_quiz">
+    {% for question in g.questions_princess_quiz %}
+    <!-- {{ question["question_text"] }} -->
+      <div class="mb-3">
+        <label for="{{ 'question_' + loop.index|string }}" class="form-label">{{ question["question_text"] }}</label>
+        {% for option in question["options"] %}
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="{{ option['option_text'] }}" id="{{ 'question_' + loop.index|string + '_option_' + loop.index0|string }}" name="{{ 'question_' + loop.index|string }}">
+            <label class="form-check-label" for="{{ 'question_' + loop.index|string + '_option_' + loop.index0|string }}">
+              {{ option["option_text"] }}
+            </label>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  
+{% endblock %}

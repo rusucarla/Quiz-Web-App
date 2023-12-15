@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-body-emphasis">Bun Venit !</h1>
+<p class="text-body">
+    Acesta este un site cu mai multe quiz-uri haioase (speram), care te vor
+    ajuta sa iti petreci timpul mai placut.
+</p>
+<div class="card" style="width: 20rem;">
+    <img src="../static/images/official-disney-princesses.jpg"
+        class="card-img-top" alt="poza cu printese Disney">
+    <div class="card-body">
+        <h5 class="card-title">Afla ce printesa Disney esti</h5>
+        <p class="card-text">Ai vrut sa afli vreodata daca esti ca Cinderella
+            sau poate esti ca Merida ? </p>
+        <p class="card-text">Acum poti afla !</p>
+        <a href="/princess_quiz" class="btn btn-primary" role="button">Acceseaza
+            quiz-ul</a>
+    </div>
+</div>
+{% endblock %}
+```

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-body-emphasis">Prezentarea Echipei !</h1>
+<p class="text-body">
+    Suntem o echipa de 4 studente la Facultatea de Automatica si Calculatoare
+    din cadrul Universitatii Politehnica Bucuresti. Ne-am unit fortele pentru a
+    crea un
+    site cu quiz-uri haioase, care sa te ajute sa iti petreci timpul mai
+    placut. Speram sa iti placa ! </p>
+<p class="text-body">
+    Daca vrei sa aflii vesti despre viitoare proiecte aboneaza-te la mailling
+    list </p>
+<form action="/about" method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" name="email">
+        <div id="emailHelp" class="form-text">Nu vom impartasii datele date cu
+            altcineva</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input name="password" type="password" class="form-control"
+            id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+        <input name="checkbox" type="checkbox" class="form-check-input"
+            id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Vreau sa ma tineti
+            minte</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Trimite</button>
+</form>
+{% endblock %}
