@@ -3,124 +3,64 @@
     {
       "question_text": "Care este culoarea ta preferată?",
       "options": [
-        {
-          "option_text": "Albastru",
-          "score": {
-            "Cinderella": 2,
-            "Ariel": 1,
-            "Belle": 3,
-            "Mulan": 4
-          }
-        },
-        {
-          "option_text": "Roz",
-          "score": {
-            "Cinderella": 1,
-            "Ariel": 3,
-            "Belle": 2,
-            "Mulan": 4
-          }
-        },
-        {
-          "option_text": "Galben",
-          "score": {
-            "Cinderella": 3,
-            "Ariel": 2,
-            "Belle": 4,
-            "Mulan": 1
-          }
-        },
-        {
-          "option_text": "Verde",
-          "score": {
-            "Cinderella": 4,
-            "Ariel": 1,
-            "Belle": 3,
-            "Mulan": 2
-          }
-        }
+        {"option_text": "Albastru", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 4, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}},
+        {"option_text": "Roz", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 3, "Rapunzel": 2, "Tiana": 1}},
+        {"option_text": "Galben", "score": {"Cinderella": 3, "Ariel": 2, "Belle": 4, "Mulan": 1, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Verde", "score": {"Cinderella": 4, "Ariel": 1, "Belle": 3, "Mulan": 2, "Elsa": 2, "Rapunzel": 4, "Tiana": 1}}
       ]
     },
     {
       "question_text": "Ce activitate îți place cel mai mult?",
       "options": [
-        {
-          "option_text": "Cântat",
-          "score": {
-            "Cinderella": 1,
-            "Ariel": 3,
-            "Belle": 2,
-            "Mulan": 4
-          }
-        },
-        {
-          "option_text": "Citit",
-          "score": {
-            "Cinderella": 2,
-            "Ariel": 1,
-            "Belle": 4,
-            "Mulan": 3
-          }
-        },
-        {
-          "option_text": "Dansat",
-          "score": {
-            "Cinderella": 4,
-            "Ariel": 2,
-            "Belle": 1,
-            "Mulan": 3
-          }
-        },
-        {
-          "option_text": "Gătit",
-          "score": {
-            "Cinderella": 3,
-            "Ariel": 1,
-            "Belle": 2,
-            "Mulan": 4
-          }
-        }
+        {"option_text": "Cântat", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Citit", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
+        {"option_text": "Dansat", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Gătit", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
       ]
     },
     {
-      "question_text": "Care este animalul tău preferat?",
+      "question_text": "Care este locul tău preferat pentru vacanță?",
       "options": [
-        {
-          "option_text": "Câine",
-          "score": {
-            "Cinderella": 2,
-            "Ariel": 1,
-            "Belle": 4,
-            "Mulan": 3
-          }
-        },
-        {
-          "option_text": "Pisică",
-          "score": {
-            "Cinderella": 1,
-            "Ariel": 3,
-            "Belle": 2,
-            "Mulan": 4
-          }
-        },
-        {
-          "option_text": "Pasăre",
-          "score": {
-            "Cinderella": 4,
-            "Ariel": 2,
-            "Belle": 3,
-            "Mulan": 1
-          }
-        },
-        {
-          "option_text": "Cal",
-          "score": {
-            "Cinderella": 3,
-            "Ariel": 1,
-            "Belle": 2,
-            "Mulan": 4
-          }
-        }
+        {"option_text": "Plajă exotică", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Munte", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Oraș aglomerat", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
+        {"option_text": "Retreată liniștită", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
+      ]
+    },
+    {
+      "question_text": "Ce fel de muzică îți place cel mai mult?",
+      "options": [
+        {"option_text": "Pop", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Rock", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
+        {"option_text": "Clasică", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Jazz", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
+      ]
+    },
+    {
+      "question_text": "Ce superputere ai vrea să ai?",
+      "options": [
+        {"option_text": "Invizibilitate", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Zbor", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Superforță", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
+        {"option_text": "Teleportare", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
+      ]
+    },
+    {
+      "question_text": "Ce tip de film îți place să vezi?",
+      "options": [
+        {"option_text": "Dramă", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Comedie", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
+        {"option_text": "Aventură", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "SF", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
+      ]
+    },
+    {
+      "question_text": "Ce ai face într-o zi ploioasă?",
+      "options": [
+        {"option_text": "Citit o carte", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Uitat la ploaie", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Făcut un puzzle", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
+        {"option_text": "Gătit ceva bun", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
       ]
     }
   ]

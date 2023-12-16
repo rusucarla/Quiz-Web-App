@@ -11,6 +11,8 @@
     <meta name="generator" content="Hugo 0.118.2">
     <title>Quiz Web App</title>
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -92,7 +94,7 @@
 </head>
 
 <body>
-    <div class="col-lg-8 mx-auto p-4 py-md-5">
+    <div class="col-lg-9 mx-auto p-4 py-md-5">
         <header class="align-items-center border-bottom">
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
