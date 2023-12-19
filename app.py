@@ -21,64 +21,64 @@ user_data = [
 questions_princess_quiz = [ {
       "question_text": "Care este culoarea ta preferată?",
       "options": [
-        {"option_text": "Albastru", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 4, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}},
-        {"option_text": "Roz", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 3, "Rapunzel": 2, "Tiana": 1}},
-        {"option_text": "Galben", "score": {"Cinderella": 3, "Ariel": 2, "Belle": 4, "Mulan": 1, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Verde", "score": {"Cinderella": 4, "Ariel": 1, "Belle": 3, "Mulan": 2, "Elsa": 2, "Rapunzel": 4, "Tiana": 1}}
+        {"option_text": "Albastru", "image_url": "../static/images/princess_quiz/question_1/albastru.png" , "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 4, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}},
+        {"option_text": "Roz", "image_url": "../static/images/princess_quiz/question_1/roz.png", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 3, "Rapunzel": 2, "Tiana": 1}},
+        {"option_text": "Galben", "image_url": "../static/images/princess_quiz/question_1/galben.png", "score": {"Cinderella": 3, "Ariel": 2, "Belle": 4, "Mulan": 1, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Verde", "image_url": "../static/images/princess_quiz/question_1/verde.png", "score": {"Cinderella": 4, "Ariel": 1, "Belle": 3, "Mulan": 2, "Elsa": 2, "Rapunzel": 4, "Tiana": 1}}
       ]
     },
     {
       "question_text": "Ce activitate îți place cel mai mult?",
       "options": [
-        {"option_text": "Cântat", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Citit", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
-        {"option_text": "Dansat", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Gătit", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
+        {"option_text": "Cântat", "image_url": "../static/images/princess_quiz/question_2/cantat.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Citit", "image_url": "../static/images/princess_quiz/question_2/citit.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
+        {"option_text": "Dansat", "image_url": "../static/images/princess_quiz/question_2/dansat.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Gătit", "image_url": "../static/images/princess_quiz/question_2/gatit.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
       ]
     },
     {
       "question_text": "Care este locul tău preferat pentru vacanță?",
       "options": [
-        {"option_text": "Plajă exotică", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Munte", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Oraș aglomerat", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
-        {"option_text": "Retreată liniștită", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
+        {"option_text": "Plajă exotică", "image_url": "../static/images/princess_quiz/question_3/plaja_exotica.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Munte", "image_url": "../static/images/princess_quiz/question_3/munte.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Oraș aglomerat", "image_url": "../static/images/princess_quiz/question_3/oras_aglomerat.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
+        {"option_text": "Sat liniștit", "image_url": "../static/images/princess_quiz/question_3/sat_linistit.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
       ]
     },
     {
       "question_text": "Ce fel de muzică îți place cel mai mult?",
       "options": [
-        {"option_text": "Pop", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Rock", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
-        {"option_text": "Clasică", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Jazz", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
+        {"option_text": "Pop", "image_url": "../static/images/princess_quiz/question_4/muzica_pop.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Rock", "image_url": "../static/images/princess_quiz/question_4/muzica_rock.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
+        {"option_text": "Clasică", "image_url": "../static/images/princess_quiz/question_4/muzica_clasica.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Jazz", "image_url": "../static/images/princess_quiz/question_4/muzica_jazz.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
       ]
     },
     {
       "question_text": "Ce superputere ai vrea să ai?",
       "options": [
-        {"option_text": "Invizibilitate", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Zbor", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Superforță", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
-        {"option_text": "Teleportare", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
+        {"option_text": "Invizibilitate", "image_url": "../static/images/princess_quiz/question_5/invizibilitate.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Zbor", "image_url": "../static/images/princess_quiz/question_5/zbor.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Superforță", "image_url": "../static/images/princess_quiz/question_5/superforta.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
+        {"option_text": "Teleportare", "image_url": "../static/images/princess_quiz/question_5/teleportare.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
       ]
     },
     {
       "question_text": "Ce tip de film îți place să vezi?",
       "options": [
-        {"option_text": "Dramă", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Comedie", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
-        {"option_text": "Aventură", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "SF", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
+        {"option_text": "Dramă", "image_url": "../static/images/princess_quiz/question_6/drama.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Comedie", "image_url": "../static/images/princess_quiz/question_6/comedie.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
+        {"option_text": "Aventură", "image_url": "../static/images/princess_quiz/question_6/aventura.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "SF", "image_url": "../static/images/princess_quiz/question_6/SF.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
       ]
     },
     {
       "question_text": "Ce ai face într-o zi ploioasă?",
       "options": [
-        {"option_text": "Citit o carte", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Uitat la ploaie", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Făcut un puzzle", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
-        {"option_text": "Gătit ceva bun", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
+        {"option_text": "Citit o carte", "image_url": "../static/images/princess_quiz/question_7/citit_o_carte.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
+        {"option_text": "Uitat la ploaie", "image_url": "../static/images/princess_quiz/question_7/uitat_la_ploaie.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+        {"option_text": "Făcut un puzzle", "image_url": "../static/images/princess_quiz/question_7/facut_un_puzzle.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
+        {"option_text": "Gătit ceva bun", "image_url": "../static/images/princess_quiz/question_7/gatit_ceva_bun.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
       ]
     }
 ]
@@ -155,6 +155,7 @@ def princess_quiz():
                 if option["option_text"] == selected_answer:
                     for character, score in option["score"].items():
                         scores[character] += score
+    # print(scores)
     max_princess = max(scores, key=scores.get)
     max_princess_description = description_princess_quiz[max_princess]["description"]
     if scores[max_princess] == 0:
