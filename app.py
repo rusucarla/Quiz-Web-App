@@ -1,9 +1,12 @@
 import re
 from flask import render_template, request, jsonify, redirect, request, session, g
 from flask import Flask
+from flask import Blueprint, send_from_directory
 import json
-
-app = Flask(__name__, static_folder="static")
+import datetime
+ 
+x = datetime.datetime.now()
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 #  DICTIONARIES
 # 1. menu_pages for the navbar
@@ -11,7 +14,8 @@ menu_pages = [
     ("Home", "/", "home"),
     ("Princess Quiz", "/princess_quiz", "princess_quiz"),
     ("About", "/about", "about"),
-    ("Marvel Quiz", "/marvel_quiz", "marvel_quiz")
+    ("Marvel Quiz", "/marvel_quiz", "marvel_quiz"),
+    ("Bitcoin Quiz", "http://127.0.0.1:3000", "bitcoin_quizz")
 ]
 # 2. user_data for the about page
 user_data = [
@@ -166,6 +170,10 @@ def princess_quiz():
 @app.route("/princess_quiz_result", methods=["POST"])
 def princess_quiz_results():
   return render_template("princess_quiz_results.html", active_page="princess_quiz")
+
+@app.route('/bitcoin_quiz')
+def bitcoin_quiz():
+   return redirect("http://127.0.0.1:3000")
 
 @app.route("/about", methods=["POST", "GET"])
 def about():

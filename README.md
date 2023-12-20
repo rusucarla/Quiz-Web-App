@@ -27,3 +27,20 @@ Componentele arhitecturale :
 ## Nivel de experienta : toate suntem incepatoare in python si avem un minim de experienta in html
 
 ## Soft Deadline : 9.01.2024
+
+## Pentru partea de react:
+
+Ca sa functioneze si bitcoin quizz faceti asa:
+
+1) Instalati nodejs
+https://www.youtube.com/watch?v=PNAnLczSBmQ&t=0s
+
+2) Inapoi in proiect rulati urm :
+```
+cd bitcoin_quizz
+npm i bootstrap
+npm start
+```
+<b>npm i bootstrap</b> trebuie rulat doar o singura data, la inceput ca sa stie react ca are bootstrap in folderul lui .
+<br><br>
+Daca nu merge probabil e ceva de la npx , dati-mi mesaj
