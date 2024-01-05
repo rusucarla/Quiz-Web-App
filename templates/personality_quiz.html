@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-body-emphasis">Afla care dintre cele 5 Personalitati ti se
+    potriveste cel mai mult !</h1>
+<p class="text-body">
+    Aceste 5 trăsături primare ale personalitatii sunt : extraversiunea (adesea
+    ortografiată și extroversiune), agreabilitatea, deschiderea,
+    conștiinciozitatea,
+    și neuroticismul. </p>
+<div class="quiz-container">
+    <form method="post" action="/personality_quiz">
+        <div class="form-group my-3">
+            <h2>Extraversiunea</h2>
+            <p> Extraversiunea (sau extraversiunea) este o trăsătură de
+                personalitate caracterizată prin excitabilitate, sociabilitate,
+                vorbăreția, asertivitatea și o cantitate mare de expresivitate
+                emoțională. Persoanele cu un nivel ridicat de extraversiune sunt
+                extrovertite și au tendința de a căpăta energie în situații
+                sociale. Faptul de a fi în preajma altora îi ajută să se simtă
+                energizați și
+                excitați.
+
+                Persoanele care au un nivel scăzut al acestei trăsături de
+                personalitate sau sunt introvertite tind să fie mai rezervate.
+                Acestea au mai puțină energie
+                de cheltuit în contexte sociale și evenimentele sociale se pot
+                simți epuizate. Introvertiții au adesea nevoie de o perioadă de
+                singurătate și liniște pentru a se "reîncărca".
+            </p>
+            <label for="extraversiune" class="form-label">Cat de mult de
+                identifici cu extraversiune ?</label>
+            <input type="range" class="form-range" min="0" max="8" step="1"
+                id="extraversiune" name="extraversiune">
+        </div>
+        <div class="form-group my-3">
+            <h2>Agreabilitatea</h2>
+            <p>Această trăsătură de personalitate include atribute precum
+                încrederea, altruismul, bunătatea, afecțiunea și alte trăsături
+                prosociale.
+                comportamente prosociale. Persoanele care au un nivel ridicat de
+                agreabilitate tind să fie mai cooperante, în timp ce cele cu un
+                nivel scăzut al acestei trăsătură de personalitate tind să fie
+                mai competitive și uneori chiar manipulatoare.</p>
+            <label for="agreabilitate" class="form-label">Cat de mult de
+                identifici
+                cu agreabilitatea ?</label>
+            <input type="range" class="form-range" min="0" max="8" step="1"
+                id="agreabilitate" name="agreabilitate">
+        </div>
+        <div class="form-group my-3">
+            <h2>Deschiderea</h2>
+            <p>Deschiderea (denumită și deschiderea către experiență) pune
+                accentul pe imaginație și intuiție cel mai mult dintre toate
+                cele cinci trăsături de personalitate. Persoanele care au un
+                nivel ridicat de deschidere au tendința de a avea o gamă largă
+                de interese. Acestea sunt curioase în legătură cu lumea și cu
+                ceilalți oameni și sunt dornice să învețe lucruri noi și să se
+                bucure de experiențe noi.
+
+                Persoanele care au un nivel ridicat al acestei trăsături de
+                personalitate tind, de asemenea, să fie mai aventuroase și mai
+                creative. Invers, persoanele cu un nivel scăzut al acestei
+                trăsături de personalitate sunt adesea mult mai tradiționale și
+                pot avea dificultăți cu abstractizarea gândirea abstractă.</p>
+            <label for="deschiderea" class="form-label">Cat de mult de
+                identifici cu deschiderea ?</label>
+            <input type="range" class="form-range" min="0" max="8" step="1"
+                id="deschiderea" name="deschiderea">
+        </div>
+        <div class="form-group my-3">
+            <h2>Conștiinciozitatea</h2>
+            <p>Conștiinciozitatea este o trăsătură de personalitate care se
+                referă la modul în care o persoană controlează, reglementează și
+                direcționează propriile lor impulsuri. Persoanele care au un
+                nivel ridicat de conștiinciozitate tind să fie mai organizate și
+                mai orientate către obiective. Acestea sunt, de asemenea, mai
+                susceptibile să planifice în avans și să se străduiască să
+                realizeze obiectivele pe care și le-au stabilit.
+
+                Persoanele care au un nivel scăzut al acestei trăsături de
+                personalitate tind să fie mai spontane și mai puțin organizate.
+                Acestea pot fi, de asemenea, mai susceptibile să se abată de la
+                obiectivele pe care și le-au stabilit.</p>
+            <label for="constiinciozitate" class="form-label">Cat de mult de
+                identifici cu constiinciozitatea ?</label>
+            <input type="range" class="form-range" min="0" max="8" step="1"
+                id="constiinciozitate" name="constiinciozitate">
+        </div>
+        <div class="form-group my-3">
+            <h2>Neuroticismul</h2>
+            <p>Neuroticismul este o trăsătură de personalitate care se referă la
+                stabilitatea emoțională și la nivelul de anxietate al unei
+                persoane. Persoanele care au un nivel ridicat de neuroticism
+                tind să fie mai sensibile și mai vulnerabile la stres. Acestea
+                pot avea, de asemenea, o gamă mai largă de emoții și pot avea
+                dificultăți în a le reglementa.
+
+                Persoanele care au un nivel scăzut al acestei trăsături de
+                personalitate tind să fie mai calme și mai stabile emoțional.
+                Acestea sunt, de asemenea, mai puțin susceptibile la anxietate
+                și la alte emoții negative.</p>
+            <label for="neuroticism" class="form-label">Cat de mult de
+                identifici cu neuroticismul ?</label>
+            <input type="range" class="form-range" min="0" max="8" step="1"
+                id="neuroticism" name="neuroticism">
+        </div>
+        <!-- am nevoie de un input field si pentru varsta -->
+        <div class="form-group my-3">
+            <h2>Varsta - cele mai precise rezultate pentru 17-28</h2>
+            <label for="varsta" class="form-label">Te rog scrie varsta</label>
+            <input type="number" class="form-control" id="varsta"
+                aria-describedby="emailHelp" name="varsta">
+        </div>
+        <!-- am nevoie de un mod de a alege genul : Male sau Female -->
+        <!-- poate un dropdown -->
+        <div class="form-group my-3">
+            <h2>Te rog să selectezi genul:</h2>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="genM" name="gen"
+                    class="custom-control-input" value="Masculin">
+                <label class="custom-control-label" for="genM">Masculin</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="genF" name="gen"
+                    class="custom-control-input" value="Feminin">
+                <label class="custom-control-label" for="genF">Feminin</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Trimite</button>
+    </form>
+</div>
+{% endblock %}
