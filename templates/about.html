@@ -9,14 +9,14 @@
     site cu quiz-uri haioase, care sa te ajute sa iti petreci timpul mai
     placut. Speram sa iti placa ! </p>
 <p class="text-body">
-    Daca vrei sa aflii vesti despre viitoare proiecte aboneaza-te la mailling
+    Daca vrei sa afli vesti despre viitoare proiecte aboneaza-te la mailing
     list </p>
 <form action="/about" method="post">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1"
             aria-describedby="emailHelp" name="email">
-        <div id="emailHelp" class="form-text">Nu vom impartasii datele date cu
+        <div id="emailHelp" class="form-text">Nu vom impartasi datele date cu
             altcineva</div>
     </div>
     <div class="mb-3">
@@ -40,4 +40,87 @@
     </div>
     <button type="submit" class="btn btn-primary">Trimite</button>
   </form>
+
+<style>
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://www.hdwallpapers.in/download/vector_red_black_design_background_hd_red-HD.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
+.form-control, .form-label, .form-check-label {
+  color: #c60404;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p.text-body {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.form-control {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-check-label {
+  font-weight: normal;
+  color: black;
+}
+
+form {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.image-border {
+  border: 5px solid #007bff;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 90%;
+  display: block;
+}
+.form-text {
+    color: black;
+}
+    </style>
 {% endblock %}

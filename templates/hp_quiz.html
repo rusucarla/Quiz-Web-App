@@ -1,25 +1,26 @@
 {% extends "base.html" %}
+
 {% block head %}
 <style>
   body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #000;
+    font-family: 'Wizard', sans-serif; /* Font Wizard sau alt font cu tematică Harry Potter */
+    background-color: #740001; /* Culoare de fundal specifică Harry Potter pentru Gryffindor */
     text-align: center;
     margin: 0;
-    color: #fff;
+    color: #ffffff; /* Culoare text alb */
   }
 
   .quiz-container {
     max-width: 800px;
     margin: 50px auto;
-    background-color: #222;
+    background-color: #740001; /* Culoare container specifică Harry Potter pentru Gryffindor */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Umbra cu culoare albă */
   }
 
   h1 {
-    color: #ed1d24;
+    color: #ffd700; /* Culoare auriu specifică Harry Potter */
     font-size: 36px;
     margin-bottom: 20px;
   }
@@ -27,6 +28,7 @@
   p {
     font-size: 18px;
     margin-bottom: 10px;
+    color: #ffffff; /* Culoare text alb */
   }
 
   .options-container {
@@ -48,19 +50,19 @@
     cursor: pointer;
     padding: 15px;
     margin: 10px;
-    background-color: #ed1d24; /* Roșu Marvel */
-    color: #fff;
+    background-color: #ffd700; /* Auriu specific Harry Potter */
+    color: #740001; /* Culoare text întunecată */
     border-radius: 5px;
     transition: background-color 0.3s ease;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
   }
 
   label:hover {
-    background-color: #333; /* Ton mai închis la hover */
+    background-color: #b38600; /* Ton mai închis la hover */
   }
 
   label:active {
-    background-color: #555; /* Ton mai închis la apăsare */
+    background-color: #8c6d00; /* Ton mai închis la apăsare */
   }
 
   input[type="radio"]:checked + label {
@@ -68,8 +70,8 @@
   }
 
   button {
-    background-color: #ed1d24; /* Roșu Marvel pentru buton Submit */
-    color: #fff;
+    background-color: #ffd700; /* Auriu specific Harry Potter pentru buton Submit */
+    color: #740001; /* Culoare text întunecată */
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -80,14 +82,15 @@
   }
 
   button:hover {
-    background-color: #333; /* Ton mai închis la hover */
+    background-color: #b38600; /* Ton mai închis la hover */
   }
 </style>
 {% endblock %}
+
 {% block content %}
 <div class="quiz-container">
-  <h1>Marvel Superhero Quiz</h1>
-  <form method="post" action="/marvel_quiz">
+  <h1>Harry Potter Wizard Quiz</h1>
+  <form method="post" action="/hp_quiz">
     {% for question in questions %}
     {% set current_index = loop.index0 %}
     <div class="mb-3">
@@ -106,7 +109,7 @@
       </div>
     </div>
     {% endfor %}
-    <button type="submit">Discover Your Marvel Hero</button>
+    <button type="submit">Descoperă casa ta la Hogwarts</button>
   </form>
 </div>
 {% endblock %}

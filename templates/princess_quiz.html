@@ -55,7 +55,21 @@
   label:active {
     background-color: #b3009b;
   }
+  label.clicked {
+    background-color: #b3009b;
+  }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const labels = document.querySelectorAll("label");
+
+    labels.forEach((label) => {
+      label.addEventListener("click", function () {
+        label.classList.add("clicked");
+      });
+    });
+  });
+</script>
 {% endblock %}
 {% block content %}
 <div class="quiz-container">
@@ -68,7 +82,7 @@
       <input type="radio" name="question_{{ current_index }}"
         value="{{ option['option_text'] }}"
         id="option_{{ current_index }}_{{ loop.index }}">
-      <label for="option_{{ current_index }}_{{ loop.index }}">{{
+      <label for="option_{{ current_index }}_{{ loop.index }}" {% if clicked %}class = "clicked" {% endif %}>{{
         option['option_text'] }}
         <img src="{{ option['image_url'] }}" alt="{{ option['option_text'] }}"
           width="100" height="100">

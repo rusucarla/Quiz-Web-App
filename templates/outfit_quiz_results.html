@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+  body {
+    font-family: 'Hunger Games', sans-serif;
+    background-color: #620043; /* Culoare de fundal întunecată */
+    color: #ffffff; /* Culoare text alb */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffaeef; /* Culoare container întunecată */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000; /* Portocaliu, culoarea stilului Hunger Games */
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+    color: #000000; /* Roșu portocaliu, culoarea stilului Hunger Games */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-container">
+  <h1 class="text-body-emphasis">Anul 2024 o sa fie {{ max_result }}</h1>
+  <div class="result">
+    {% if max_result == "ICONIC" %}
+      <img src="https://i.pinimg.com/originals/dc/9d/36/dc9d36f50d425853b948c052d49cb198.jpg" alt="iconic" width="500" height="400">
+    {% elif max_result == "oof" %}
+      <img src="https://res.cloudinary.com/teepublic/image/private/s--tjQKiQrt--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1548534067/production/designs/4086482_0.jpg" alt="oof" width="400" height="400">
+    {% elif max_result == "Haotic" %}
+      <img src="https://i.redd.it/z4k1c1iefzp71.jpg" alt="haotic" width="400" height="400">
+    {% elif max_result == "Plin de succes" %}
+      <img src="https://64.media.tumblr.com/7b8f036d1b4845ee19d686a41c90c775/2d417ffd968aa47c-01/s500x750/7de19601972089625d5637b2ad046f7b133002da.jpg" alt="succes" width="400" height="400">
+    {% endif %}
+    <h4>{{ max_result_description }}</h4>
+  </div>
+</div>
+{% endblock %}

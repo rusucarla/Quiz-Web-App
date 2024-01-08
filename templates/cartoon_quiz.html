@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+
 {% block head %}
+
 <style>
   body {
     font-family: 'Montserrat', sans-serif;
@@ -48,8 +50,8 @@
     cursor: pointer;
     padding: 15px;
     margin: 10px;
-    background-color: #ed1d24; /* Roșu Marvel */
-    color: #fff;
+    background-color: #ffcc00; /* Galben desen animat */
+    color: #000;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
@@ -64,12 +66,12 @@
   }
 
   input[type="radio"]:checked + label {
-    background-color: #1a0d00; /* Culoare diferită pentru opțiunea selectată */
+    background-color: #ff9900; /* Culoare diferită pentru opțiunea selectată */
   }
 
   button {
-    background-color: #ed1d24; /* Roșu Marvel pentru buton Submit */
-    color: #fff;
+    background-color: #ffcc00; /* Galben desen animat pentru buton Submit */
+    color: #000;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -84,10 +86,12 @@
   }
 </style>
 {% endblock %}
+
 {% block content %}
+
 <div class="quiz-container">
-  <h1>Marvel Superhero Quiz</h1>
-  <form method="post" action="/marvel_quiz">
+  <h1>Cartoon Character Quiz</h1>
+  <form method="post" action="/cartoon_quiz">
     {% for question in questions %}
     {% set current_index = loop.index0 %}
     <div class="mb-3">
@@ -106,7 +110,7 @@
       </div>
     </div>
     {% endfor %}
-    <button type="submit">Discover Your Marvel Hero</button>
+    <button type="submit">Discover Your Cartoon Character</button>
   </form>
 </div>
 {% endblock %}

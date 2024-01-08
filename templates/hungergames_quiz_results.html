@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+  body {
+    font-family: 'Hunger Games', sans-serif;
+    background-color: #4c4c4c; /* Culoare de fundal întunecată */
+    color: #ffffff; /* Culoare text alb */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #5c3c3c; /* Culoare container întunecată */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff9900; /* Portocaliu, culoarea stilului Hunger Games */
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+    color: #ff6600; /* Roșu portocaliu, culoarea stilului Hunger Games */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-container">
+  <h1 class="text-body-emphasis">Semeni cu {{ max_character }}</h1>
+  <div class="result">
+    {% if max_character == "Katniss" %}
+      <img src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Katniss-Everdeen.The-Hunger-Games.webp" alt="Katniss" width="500" height="400">
+    {% elif max_character == "Peeta" %}
+      <img src="https://infernalimagination.files.wordpress.com/2013/11/peeta-river.jpg" alt="Peeta" width="400" height="400">
+    {% elif max_character == "Gale" %}
+      <img src="https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Gale-Hawthorne.The-Hunger-Games.webp" alt="Gale" width="400" height="400">
+    {% elif max_character == "Effie" %}
+      <img src="https://people.com/thmb/mlVQgY3Tp37twfuX7WqDH6p6sSc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(329x0:331x2)/effie-b-660-df294d5ba0224d3eae6f50ad29e66102.jpg" alt="Effie" width="400" height="400">
+    {% elif max_character == "Haymitch" %}
+      <img src="https://static1.moviewebimages.com/wordpress/wp-content/uploads/article/RTMEpmuiAHexARKfRg3OQnxTyLaPIS.jpg" alt="Haymitch" width="400" height="400">
+    {% elif max_character == "Finnick" %}
+      <img src="https://i.pinimg.com/564x/b2/0b/62/b20b621d28c3e21a415b03000c05d066.jpg" alt="Finnick" width="400" height="400">
+    {% elif max_character == "Prim" %}
+      <img src="https://miro.medium.com/v2/resize:fit:470/1*JAaUJa3qocd6Xo27Ow-t6g.png" alt="Prim" width="400" height="400">
+    {% endif %}
+    <h4>{{ max_character_description }}</h4>
+  </div>
+</div>
+{% endblock %}

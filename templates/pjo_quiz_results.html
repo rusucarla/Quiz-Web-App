@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+  body {
+    font-family: 'Demigod', sans-serif; /* Font Demigod sau alt font cu tematică Percy Jackson */
+    background-color: #3a4d1c; /* Culoare de fundal specifică Percy Jackson */
+    color: #ffffff; /* Culoare text alb */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #50632b; /* Culoare container specifică Percy Jackson */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffd700; /* Culoare auriu specifică Percy Jackson */
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+    color: #ffd700; /* Culoare auriu specifică Percy Jackson */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-container">
+  <h1 class="text-body-emphasis">Parintele tau zeu ar fi {{ max_hero }}</h1>
+  <div class="result">
+    {% if max_hero == "Zeus" %}
+      <img src="https://www.revistaromaniamare.ro/image/catalog/articole/2014/10/Zeus_by_thegryph.jpg" alt="Zeus">
+    {% elif max_hero == "Poseidon" %}
+      <img src="https://i.etsystatic.com/33713566/r/il/5a630a/4654306862/il_fullxfull.4654306862_ozuj.jpg" alt="Poseidon">
+    {% elif max_hero == "Athena" %}
+      <img src="https://geekgalsco.files.wordpress.com/2022/03/cc97e-athena-goodfon.jpg?w=720" alt="Athena">
+    {% elif max_hero == "Apollo" %}
+      <img src="https://static.wixstatic.com/media/af1176_63a6238d44fb40388971430a263dd7bf~mv2.jpg/v1/fill/w_640,h_960,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/af1176_63a6238d44fb40388971430a263dd7bf~mv2.jpg" alt="Apollo">
+    {% endif %}
+    <h4>{{ max_hero_description }}</h4>
+  </div>
+</div>
+
+{% endblock %}

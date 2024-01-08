@@ -1,6 +1,65 @@
 {% extends "base.html" %}
 
+{% block head %}
+<style>
+  body {
+    font-family: 'Princess', sans-serif;
+    background-color: #070707; /* Gold */
+    color: #e579aa; /* Purple */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #9f0064; /* Moccasin */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.1); /* Purple shadow */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #000000; /* Purple */
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+    color: #000000; /* OrangeRed */
+  }
+</style>
+{% endblock %}
+
 {% block content %}
-<h1 class="text-body-emphasis">Semeni foarte mult cu {{ max_princess }}</h1>
-<h2>{{ max_princess_description }}</h2>
+<div class="result-container">
+  <h1 class="text-body-emphasis">Semeni cu {{ max_princess }}</h1>
+  <div class="result">
+    {% if max_princess == "Mulan" %}
+      <img src="https://lumiere-a.akamaihd.net/v1/images/pp_princess_mulan_static_mobile_20694_a45e948d.jpeg?region=0%2C0%2C640%2C480" alt="Mulan" width="400" height="400">
+    {% elif max_princess == "Elsa" %}
+      <img src="https://lumiere-a.akamaihd.net/v1/images/ct_frozen_elsa_18466_22a50822.jpeg?region=0,0,600,600" alt="Elsa" width="400" height="400">
+    {% elif max_princess == "Ariel" %}
+      <img src="https://lumiere-a.akamaihd.net/v1/images/pp_princess_ariel_static_mobile_20694_70395325.jpeg?region=0%2C0%2C640%2C480" alt="Ariel" width="400" height="400">
+    {% elif max_princess == "Cinderella" %}
+      <img src="https://facts.net/wp-content/uploads/2023/09/16-facts-about-cinderella-disneys-cinderella-1693734936.jpg" alt="Cinderella" width="400" height="400">
+    {% elif max_princess == "Belle" %}
+      <img src="https://lumiere-a.akamaihd.net/v1/images/gallery_princess_belle_2_f4a938c0.jpeg?region=0%2C0%2C2181%2C1223" alt="Belle" width="400" height="400">
+    {% elif max_princess == "Rapunzel" %}
+      <img src="https://lumiere-a.akamaihd.net/v1/images/gallery_princess_rapunzel_2_a7f3c7a8_9fabd1e5.jpeg?region=3%2C0%2C2175%2C1223" alt="Rapunzel" width="400" height="400">
+    {% elif max_princess == "Tiana" %}
+      <img src="https://cdn-ssl.s7.disneystore.com/is/image/ShopDisney/mb_character-tiana_launch_2x_m?fit=constrain&cropN=0,0,1,1&fmt=jpeg&qlt=90&wid=1200" alt="Tiana" width="400" height="400">
+    {% endif %}
+    <h4>{{ max_princess_description }}</h4>
+  </div>
+</div>
 {% endblock %}

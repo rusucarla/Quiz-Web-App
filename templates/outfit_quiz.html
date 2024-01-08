@@ -1,25 +1,27 @@
 {% extends "base.html" %}
+
 {% block head %}
+
 <style>
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: #000;
     text-align: center;
     margin: 0;
-    color: #fff;
+    color: #020000;
   }
 
   .quiz-container {
     max-width: 800px;
     margin: 50px auto;
-    background-color: #222;
+    background-color: #fb9cee;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
   h1 {
-    color: #ed1d24;
+    color: #780d63;
     font-size: 36px;
     margin-bottom: 20px;
   }
@@ -48,8 +50,8 @@
     cursor: pointer;
     padding: 15px;
     margin: 10px;
-    background-color: #ed1d24; /* Roșu Marvel */
-    color: #fff;
+    background-color: #1cbafe; /* Galben desen animat */
+    color: #000;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
@@ -64,12 +66,12 @@
   }
 
   input[type="radio"]:checked + label {
-    background-color: #1a0d00; /* Culoare diferită pentru opțiunea selectată */
+    background-color: #940077; /* Culoare diferită pentru opțiunea selectată */
   }
 
   button {
-    background-color: #ed1d24; /* Roșu Marvel pentru buton Submit */
-    color: #fff;
+    background-color: #397eff; /* Galben desen animat pentru buton Submit */
+    color: #000;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
@@ -84,10 +86,12 @@
   }
 </style>
 {% endblock %}
+
 {% block content %}
+
 <div class="quiz-container">
-  <h1>Marvel Superhero Quiz</h1>
-  <form method="post" action="/marvel_quiz">
+  <h1>Outfit Quiz</h1>
+  <form method="post" action="/outfit_quiz">
     {% for question in questions %}
     {% set current_index = loop.index0 %}
     <div class="mb-3">
@@ -98,15 +102,17 @@
           <input type="radio" name="question_{{ current_index }}"
             value="{{ option['option_text'] }}"
             id="option_{{ current_index }}_{{ loop.index }}">
-          <label for="option_{{ current_index }}_{{ loop.index }}">{{
-            option['option_text'] }}
-          </label>
+            <label for="option_{{ current_index }}_{{ loop.index }}">{{
+                option['option_text'] }}
+                <img src="{{ option['image_url'] }}" alt="{{ option['option_text'] }}"
+                  width="100" height="100">
+              </label>
         </div>
         {% endfor %}
       </div>
     </div>
     {% endfor %}
-    <button type="submit">Discover Your Marvel Hero</button>
+    <button type="submit">Submit</button>
   </form>
 </div>
 {% endblock %}
