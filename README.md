@@ -34,13 +34,32 @@ Ca sa functioneze si bitcoin quizz faceti asa:
 
 1) Instalati nodejs
 https://www.youtube.com/watch?v=PNAnLczSBmQ&t=0s
+<br>
+Daca lucrati pe WSL/Linux/Mac :
+https://www.youtube.com/watch?v=R73JI8rwkKc
 
 2) Inapoi in proiect rulati urm :
+<br>
+(Daca aveti folderul node_modules stergeti-l nu dati commit cu el ca o ia razna git)
+<br><br>
 ```
 cd bitcoin_quizz
-npm i bootstrap
+npm install 
 npm start
 ```
-<b>npm i bootstrap</b> trebuie rulat doar o singura data, la inceput ca sa stie react ca are bootstrap in folderul lui .
 <br><br>
-Daca nu merge probabil e ceva de la npx , dati-mi mesaj
+Trebuie sa ii dati npm start ca sa il vada si flasku. Apoi
+```
+cd ..
+python3 app.py
+```
+Si selectati din site quizul ca for some reason doar asa imi afiseaza imaginile din background 
+<H3>De ce nu am folosit react build pt deployment?</H3>
+<br>
+Nu merge comanda
+
+```
+serve -h
+```  
+chiar daca l-am instalat.
+<br>

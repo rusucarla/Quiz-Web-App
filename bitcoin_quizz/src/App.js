@@ -56,88 +56,7 @@
 // import Score from "./Components/Score";
 // import "./App.css";
 
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       questionBank: quests,
-//       current: 0,
-//       select: "",
-//       score: 0,
-//       ender: false,
-//     };
 
-//     // // Binding methods
-//     // this.handleOptionChange = this.handleOptionChange.bind(this);
-//     // this.submited = this.submited.bind(this);
-//     // this.checkAns = this.checkAns.bind(this);
-//     // this.NextQ = this.NextQ.bind(this);
-//   }
-
-//   handleOptionChange(e) {
-//     this.setState({ select: e.target.value });
-//   }
-
-//   submited(e) {
-//     e.preventDefault();
-//     this.checkAns();
-//     this.NextQ();
-//   }
-
-//   checkAns() {
-//     const { questionBank, current, select, score } = this.state;
-//     const currentObj = questionBank[current];
-//     if (currentObj.hasOwnProperty("answer")) {
-//       if (select === currentObj.answer) {
-//         this.setState((prevState) => ({
-//           score: prevState.score + 1,
-//         }));
-//       }
-//     }
-//   }
-
-//   NextQ = () => {
-//     const { questionBank, current } = this.state;
-//     console.log(questionBank.length);
-//     if (current + 1 < questionBank.length) {
-//         this.setState((prevState) => ({
-//             current: prevState.current + 1,
-//             select: "",
-//         }));
-//     } else {
-//         this.setState({
-//             ender: true,
-//         });
-//     }
-// };
-
-//   render() {
-//     const { questionBank, current, select, score, ender } = this.state;
-//     console.log(questionBank.length);
-//     return (
-//       <div className="App d-flex flex-column align-items-center justify-content-center">
-//         <h1 className="app-title">QUIZ APP</h1>
-//         {!ender ? (
-//           <Question
-//             question={questionBank[current]}
-//             select={select}
-//             onOptionChange={this.handleOptionChange}
-//             onSubmit={this.submited}
-            
-//           />
-//         ) : (
-          
-//           <Score score={score}
-//            onNextQuestion={this.NextQ}
-//           className="score" />
-//         )}
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-// App.js
 
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -145,7 +64,19 @@ import Question from "./Components/Question";
 import qBank from "./Components/QuestionBank";
 import Score from "./Components/Score";
 import "./App.css";
-
+import Fireworks from "react-fireworks";
+//import backgroundImage from "https://assets.stickpng.com/thumbs/5845e614fb0b0755fa99d7e8.png";
+const backgroundImageUrls = [
+	"url('https://assets.stickpng.com/thumbs/5845e614fb0b0755fa99d7e8.png')",
+	"url('https://assets.stickpng.com/thumbs/58967e9b0803320bf17c2fb8.png')",
+	"url('https://assets.stickpng.com/thumbs/589b561082250818d81e7490.png')",
+	"url('https://assets.stickpng.com/thumbs/5ee7713799588c0004aa6848.png')",
+	"url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mnnnHu9F_eY9hpUy3D0wt8_-FrwMWvmGlA&usqp=CAU')",
+	"url('https://www.pngmart.com/files/22/Racoon-PNG.png')"
+];
+	//"https://assets.stickpng.com/thumbs/5ee7713799588c0004aa6848.png",
+	//"https://assets.stickpng.com/thumbs/5ee771dc99588c0004aa6849.png"
+ // ];
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -155,6 +86,7 @@ class App extends Component {
 			select: "",
 			score: 0,
 			ender: false,
+			fire: false,
 		};
 	}
 
@@ -166,6 +98,7 @@ class App extends Component {
 		e.preventDefault();
 		this.checkAnswer();
 		this.NextQ();
+		
 	};
 
 	checkAnswer = () => {
@@ -184,7 +117,9 @@ class App extends Component {
 		if (select === "YES")
 			this.setState((prevState) => ({ score: prevState.score + 2 }));
 		if (select === "i am already rich")
-			this.setState((prevState) => ({score: prevState.score + 1}))
+			this.setState((prevState) => ({score: prevState.score - 2}))
+			if (select === "no, i like poverty")
+			this.setState((prevState) => ({ score: prevState.score -3 }));
 	}
 	if (current === 1)
 	{
@@ -199,8 +134,15 @@ class App extends Component {
 		}
 	if (current === 4)
 	{
-		if (select == "My cat is God")
+		if (select === "My cat is God")
 		this.setState((prevState) => ({score: prevState.score + 1}))
+	}
+	if (current === 5)
+	{
+		if (select === "i am teddy bear")
+		this.setState((prevState) => ({score: prevState.score - 1}))
+		if (select === "bullish!")
+		this.setState((prevState) => ({score: prevState.score + 5}))
 	}
 		
 	};
@@ -222,9 +164,23 @@ class App extends Component {
 	render() {
 		const { questionBank, current, select, score, ender } =
 			this.state;
+		
+		const backgroundImageUrl = backgroundImageUrls[current]
 		return (
-			<div className="App d-flex flex-column align-items-center justify-content-center">
-				<h1 className="app-title">QUIZ APP</h1>
+			<div   style={{
+				textAlign: "center",
+          fontFamily: "Arial, sans-serif",
+		  backgroundImage: backgroundImageUrl,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+			  }}className="App d-flex flex-column align-items-center justify-content-center">
+				< h1
+          style={{
+            fontSize: "2em",
+            marginBottom: "20px",
+            color: "#ff00bb",
+          }}className="app-title">Bitcoin quizz</h1>
 				{!ender ? (
           
 					<Question
@@ -232,11 +188,24 @@ class App extends Component {
 						select={select}
 						onOptionChange={this.handleOptionChange}
 						onSubmit={this.handleFormSubmit}
+						style={{
+							border: "1px solid #ccc",
+							padding: "20px",
+							borderRadius: "5px",
+							marginBottom: "20px",
+							backgroundColor: "#ff0033",
+						  }}
+						  className="question-box"
 					/>
 				) : (
 					<Score
 						score={score}
 						onNextQuestion={this.NextQ}
+						style={{
+							fontSize: "1.5em",
+							marginTop: "30px",
+							color: "##ff0033"
+						  }}
 						className="score"
 					/>
 				)}
