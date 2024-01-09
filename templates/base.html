@@ -11,6 +11,11 @@
     <meta name="generator" content="Hugo 0.118.2">
     <title>Quiz Web App</title>
     <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+        rel="stylesheet">
     {% block head %}
     {% endblock %}
     <style>
@@ -90,6 +95,24 @@
         .bd-mode-toggle .dropdown-menu .active .bi {
             display: block !important;
         }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            /* Greutatea pentru regular */
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            /* Greutatea pentru Black */
+        }
+
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            /* Greutatea pentru semi-bold */
+        }
     </style>
 </head>
 
@@ -121,7 +144,7 @@
         </main>
         <footer class="pt-5 my-5 text-body-secondary border-top">
             <!-- Template created by the Bootstrap team &middot; &copy; 2023 -->
-            Also echipa de vis : Banu Daria, Iordache Ioana, Mihai Alexia, Rusu
+            Echipa de vis : Banu Daria, Iordache Ioana, Mihai Alexia, Rusu
             Carla &middot; &copysr; 2023
         </footer>
     </div>

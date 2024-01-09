@@ -78,6 +78,7 @@
 {% endblock %}
 {% block content %}
 <div class="quiz-container">
+  <h1>Hunger Games Quiz</h1>
   <form method="post" action="/hungergames_quiz">
     {% for question in questions %}
     {% set current_index = loop.index0 %}

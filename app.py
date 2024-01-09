@@ -2,14 +2,40 @@ import re
 from flask import render_template, request, jsonify, redirect, request, session, g
 from flask import Flask
 import json
+import pandas as pd
+from sklearn import linear_model
+from sklearn.impute import SimpleImputer
+import numpy as np
 
 app = Flask(__name__, static_folder="static")
+
+# Încărcarea datasetului
+data = pd.read_csv('static/dataset.csv')
+
+# Convertirea coloanei de gen în valori binare
+data['Gender'] = data['Gender'].map({'Male': 1, 'Female': 0})
+
+# Imputarea valorilor NaN pentru coloanele numerice
+numeric_columns = data.columns[:-1]  # Toate coloanele, excluzând etichetele
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+data[numeric_columns] = imputer.fit_transform(data[numeric_columns])
+
+# Separarea setului de date în caracteristici și etichete
+maindf = data.iloc[:, :-1]  # Toate coloanele, excluzând ultima coloană cu etichete
+train_y = data.iloc[:, -1].astype(str)  # Ultima coloană pentru etichete
+
+# Crearea și antrenarea modelului de regresie logistică
+mul_lr = linear_model.LogisticRegression(multi_class="multinomial", solver="newton-cg", max_iter=1000)
+mul_lr.fit(maindf, train_y)
+# sfarsit incarcare dataset
+
 
 #  DICTIONARIES
 # 1. menu_pages for the navbar
 menu_pages = [
     ("Home", "/", "home"),
     ("About", "/about", "about"),
+    ("Personality Quiz", "/personality_quiz", "personality_quiz"),
     ("Princess Quiz", "/princess_quiz", "princess_quiz"),
     ("Marvel Quiz", "/marvel_quiz", "marvel_quiz"),
     ("Cartoon Quiz", "/cartoon_quiz", "cartoon_quiz"),
@@ -23,79 +49,80 @@ user_data = [
     ("admin", "admin", "checked")
 ]
 # 3. questions_princess_quiz for the princess quiz
-questions_princess_quiz = [ {
-      "question_text": "Care este culoarea ta preferată?",
-      "options": [
-        {"option_text": "Albastru", "image_url": "../static/images/princess_quiz/question_1/albastru.png" , "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 2, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}},
-        {"option_text": "Roz", "image_url": "../static/images/princess_quiz/question_1/roz.png", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 3, "Rapunzel": 2, "Tiana": 1}},
-        {"option_text": "Galben", "image_url": "../static/images/princess_quiz/question_1/galben.png", "score": {"Cinderella": 3, "Ariel": 2, "Belle": 4, "Mulan": 1, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Verde", "image_url": "../static/images/princess_quiz/question_1/verde.png", "score": {"Cinderella": 4, "Ariel": 1, "Belle": 3, "Mulan": 2, "Elsa": 2, "Rapunzel": 4, "Tiana": 1}}
-      ]
+questions_princess_quiz = [
+    {
+        "question_text": "Ce nuanță te reprezintă cel mai bine?",
+        "options": [
+            {"option_text": "Albastru profund", "image_url": "../static/images/princess_quiz/question_1/albastru.png", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Roz vibrant", "image_url": "../static/images/princess_quiz/question_1/roz.png", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 1}},
+            {"option_text": "Galben solar", "image_url": "../static/images/princess_quiz/question_1/galben.png", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Verde natură", "image_url": "../static/images/princess_quiz/question_1/verde.png", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 2, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 3}}
+        ]
     },
     {
-      "question_text": "Ce activitate îți place cel mai mult?",
-      "options": [
-        {"option_text": "Cântat", "image_url": "../static/images/princess_quiz/question_2/cantat.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 1, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Citit", "image_url": "../static/images/princess_quiz/question_2/citit.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
-        {"option_text": "Dansat", "image_url": "../static/images/princess_quiz/question_2/dansat.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 2, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Gătit", "image_url": "../static/images/princess_quiz/question_2/gatit.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
-      ]
+        "question_text": "Care dintre aceste activități îți umple sufletul de bucurie?",
+        "options": [
+            {"option_text": "Cântatul sub stele", "image_url": "../static/images/princess_quiz/question_2/cantat.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Cititul în liniște", "image_url": "../static/images/princess_quiz/question_2/citit.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Dansat cu pasiune", "image_url": "../static/images/princess_quiz/question_2/dansat.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+            {"option_text": "Gătitul unor delicii", "image_url": "../static/images/princess_quiz/question_2/gatit.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}}
+        ]
     },
     {
-      "question_text": "Care este locul tău preferat pentru vacanță?",
-      "options": [
-        {"option_text": "Plajă exotică", "image_url": "../static/images/princess_quiz/question_3/plaja_exotica.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 1, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Munte", "image_url": "../static/images/princess_quiz/question_3/munte.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Oraș aglomerat", "image_url": "../static/images/princess_quiz/question_3/oras_aglomerat.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
-        {"option_text": "Sat liniștit", "image_url": "../static/images/princess_quiz/question_3/sat_linistit.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 3, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
-      ]
+        "question_text": "Care este locul tău preferat pentru vacanță?",
+        "options": [
+            {"option_text": "Plajă exotică", "image_url": "../static/images/princess_quiz/question_3/plaja_exotica.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Munte", "image_url": "../static/images/princess_quiz/question_3/munte.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Oraș aglomerat", "image_url": "../static/images/princess_quiz/question_3/oras_aglomerat.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}},
+            {"option_text": "Sat liniștit", "image_url": "../static/images/princess_quiz/question_3/sat_linistit.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
+        ]
     },
     {
-      "question_text": "Ce fel de muzică îți place cel mai mult?",
-      "options": [
-        {"option_text": "Pop", "image_url": "../static/images/princess_quiz/question_4/muzica_pop.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 1, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Rock", "image_url": "../static/images/princess_quiz/question_4/muzica_rock.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 2, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
-        {"option_text": "Clasică", "image_url": "../static/images/princess_quiz/question_4/muzica_clasica.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Jazz", "image_url": "../static/images/princess_quiz/question_4/muzica_jazz.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 2, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
-      ]
+        "question_text": "Ce fel de muzică îți place cel mai mult?",
+        "options": [
+            {"option_text": "Pop", "image_url": "../static/images/princess_quiz/question_4/muzica_pop.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Rock", "image_url": "../static/images/princess_quiz/question_4/muzica_rock.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Clasică", "image_url": "../static/images/princess_quiz/question_4/muzica_clasica.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Jazz", "image_url": "../static/images/princess_quiz/question_4/muzica_jazz.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}}
+        ]
     },
     {
-      "question_text": "Ce superputere ai vrea să ai?",
-      "options": [
-        {"option_text": "Invizibilitate", "image_url": "../static/images/princess_quiz/question_5/invizibilitate.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Zbor", "image_url": "../static/images/princess_quiz/question_5/zbor.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 2, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Superforță", "image_url": "../static/images/princess_quiz/question_5/superforta.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
-        {"option_text": "Teleportare", "image_url": "../static/images/princess_quiz/question_5/teleportare.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
-      ]
+        "question_text": "Ce superputere ai vrea să ai?",
+        "options": [
+            {"option_text": "Invizibilitate", "image_url": "../static/images/princess_quiz/question_5/invizibilitate.jpg", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Zbor", "image_url": "../static/images/princess_quiz/question_5/zbor.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Superforță", "image_url": "../static/images/princess_quiz/question_5/superforta.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Teleportare", "image_url": "../static/images/princess_quiz/question_5/teleportare.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
+        ]
     },
     {
-      "question_text": "Ce tip de film îți place să vezi?",
-      "options": [
-        {"option_text": "Dramă", "image_url": "../static/images/princess_quiz/question_6/drama.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 1, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Comedie", "image_url": "../static/images/princess_quiz/question_6/comedie.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 3}},
-        {"option_text": "Aventură", "image_url": "../static/images/princess_quiz/question_6/aventura.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 2, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "SF", "image_url": "../static/images/princess_quiz/question_6/SF.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 2, "Tiana": 3}}
-      ]
+        "question_text": "Ce tip de film îți place să vezi?",
+        "options": [
+            {"option_text": "Dramă", "image_url": "../static/images/princess_quiz/question_6/drama.jpg", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 1}},
+            {"option_text": "Comedie", "image_url": "../static/images/princess_quiz/question_6/comedie.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Aventură", "image_url": "../static/images/princess_quiz/question_6/aventura.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "SF", "image_url": "../static/images/princess_quiz/question_6/SF.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}}
+        ]
     },
     {
-      "question_text": "Ce ai face într-o zi ploioasă?",
-      "options": [
-        {"option_text": "Citit o carte", "image_url": "../static/images/princess_quiz/question_7/citit_o_carte.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 2, "Mulan": 4, "Elsa": 4, "Rapunzel": 1, "Tiana": 2}},
-        {"option_text": "Uitat la ploaie", "image_url": "../static/images/princess_quiz/question_7/uitat_la_ploaie.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 4, "Mulan": 3, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-        {"option_text": "Făcut un puzzle", "image_url": "../static/images/princess_quiz/question_7/facut_un_puzzle.jpg", "score": {"Cinderella": 4, "Ariel": 2, "Belle": 1, "Mulan": 3, "Elsa": 3, "Rapunzel": 2, "Tiana": 4}},
-        {"option_text": "Gătit ceva bun", "image_url": "../static/images/princess_quiz/question_7/gatit_ceva_bun.jpg", "score": {"Cinderella": 3, "Ariel": 1, "Belle": 2, "Mulan": 4, "Elsa": 1, "Rapunzel": 4, "Tiana": 3}}
-      ]
+        "question_text": "Ce ai face într-o zi ploioasă?",
+        "options": [
+            {"option_text": "Citit o carte", "image_url": "../static/images/princess_quiz/question_7/citit_o_carte.jpg", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Uitat la ploaie", "image_url": "../static/images/princess_quiz/question_7/uitat_la_ploaie.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Făcut un puzzle", "image_url": "../static/images/princess_quiz/question_7/facut_un_puzzle.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Gătit ceva bun", "image_url": "../static/images/princess_quiz/question_7/gatit_ceva_bun.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
+        ]
     }
 ]
 # 4. description for the princess quiz results
 description_princess_quiz = {
-  "Cinderella" : {"description": "Ești o persoană foarte ambițioasă și nu te lași până nu obții ceea ce îți dorești. Ești o persoană foarte bună și îți place să ajuți pe cei din jurul tău. Ești o persoană foarte curajoasă și nu te lași până nu îți atingi obiectivele."},
-  "Ariel" : {"description": "Ești o persoană foarte curioasă și îți place să încerci lucruri noi. Ești o persoană foarte sensibilă și îți pasă foarte mult de cei din jurul tău. Ești o persoană foarte creativă și îți place să îți exprimi sentimentele prin artă."},
-  "Belle" : {"description": "Ești o persoană foarte inteligentă și îți place să înveți lucruri noi. Ești o persoană foarte curajoasă și îți place să încerci lucruri noi. Ești o persoană foarte ambițioasă și nu te lași până nu îți atingi obiectivele."},
-  "Mulan" : {"description": "Ești o persoană foarte curajoasă și îți place să încerci lucruri noi. Ești o persoană foarte ambițioasă și nu te lași până nu îți atingi obiectivele. Ești o persoană foarte inteligentă și îți place să înveți lucruri noi."},
-  "Elsa" : {"description": "Ești o persoană foarte creativă și îți place să îți exprimi sentimentele prin artă. Ești o persoană foarte sensibilă și îți pasă foarte mult de cei din jurul tău. Ești o persoană foarte inteligentă și îți place să înveți lucruri noi."},
-  "Rapunzel" : {"description": "Ești o persoană foarte creativă și îți place să îți exprimi sentimentele prin artă. Ești o persoană foarte sensibilă și îți pasă foarte mult de cei din jurul tău. Ești o persoană foarte curioasă și îți place să încerci lucruri noi."},
-  "Tiana" : {"description": "Ești o persoană foarte ambițioasă și nu te lași până nu îți atingi obiectivele. Ești o persoană foarte curajoasă și îți place să încerci lucruri noi. Ești o persoană foarte inteligentă și îți place să înveți lucruri noi."}
+  "Cinderella" : {"description": "Reprezinți esența speranței și a rezilienței. Cu o voință de fier și o inimă plină de bunătate, îți împlinești visurile, indiferent de obstacole. Luminozitatea ta interioară și compasiunea strălucesc, ghidându-i pe cei din jur spre un viitor mai bun."},
+  "Ariel" : {"description": "Ești spiritul aventuros al mării, mereu în căutare de noi orizonturi și mistere de dezvăluit. Sensibilitatea și empatia ta profundă te fac să te conectezi cu lumea în moduri unice, iar creativitatea ta debordantă îți colorează fiecare zi."},
+  "Belle" : {"description": "Cu o sete neobosită de cunoaștere și o curaj de neclintit, ești o lumină în întuneric. Inteligența ta strălucitoare și ambiția ta pentru explorare transformă fiecare provocare într-o aventură, inspirând pe toți cei din jurul tău."},
+  "Mulan" : {"description": "Simbol al curajului și determinării, tu sfidezi așteptările și îți croiești propriul drum. Înțelepciunea și tăria ta sunt o sursă de inspirație, dovedind că adevărata putere vine din interior."},
+  "Elsa" : {"description": "Ești un dans grațios între forță și sensibilitate, o furtună de creativitate care modelează lumea în jur. Inteligența ta profundă și empatia ta vastă creează un refugiu de calm și înțelegere pentru cei care te înconjoară."},
+  "Rapunzel" : {"description": "O adevărată artistă a vieții, îți țesezi povestea cu fire colorate de curiozitate și creativitate. Sensibilitatea și empatia ta aduc frumusețe în lume, în timp ce spiritul tău aventuros deschide noi drumuri de explorat."},
+  "Tiana" : {"description": "Intruchipezi visele și muncă asiduă, fiind un far de determinare și succes. Inteligența și curajul tău sunt pilonii pe care îți construiești viitorul, demonstrând că orice vis poate deveni realitate cu suficient efort și pasiune."}
 }
 # 5. questions_marvel_quiz for the marvel quiz
 questions_marvel_quiz = [
@@ -634,6 +661,7 @@ description_spirit_animal_quiz = {
     "Delfin": {"description": "Animalul tau spiritual este Delfinul. Ești jucăuș și prietenos."},
     "Vulpe": {"description": "Animalul tau spiritual este Vulpea. Ești agil și plin de surprize."}
 }
+# Intrebari pentru Teacher Quiz
 questions_teacher_quiz = [
     {
         "question_text": "Cum ti-ai petrece o zi de vineri?",
@@ -690,7 +718,7 @@ questions_teacher_quiz = [
         ]
     }
 ]
-# 6. Informații despre supereroi Marvel
+# Descriere pentru rezultatele Teacher Quiz
 description_teacher_quiz = {
     "RD": {"description": "Esti o persoana energica si foarte misto. Nu te omori dupa ce crede lumea dar pare ca ai fost clovnul clasei in generala."},
     "Negrescu": {"description": "You're a child trapped in an old man's body with a baby face. Foarte funny, dar ai grija la ce glume spui si ce leaks din viata de zi cu zi dai."},
@@ -698,6 +726,14 @@ description_teacher_quiz = {
     "Ghiu": {"description": "Esti un tip cam ciudat, misogin, care are dubiosul obicei de a scrie pe pereti. Iti place sa torturezi oamenii. Probabil asta ascunde niste traume din copilarie. Te-ai intrebat vreodata daca ai mommy issues?"},
     "Rosner": {"description": "Nu esti un om, esti AI. Te rog vorbeste mai incet ca nu esti amuzant chiar daca incerci sa fii. Also nu toata lumea vrea sa fie corporatist."},
     "Balan": {"description": "Ai un zambet de milioane. Nu am vazut persoana care sa aiba viata mai put together. Pui suflet in tot ce faci si esti super pasionat de interesele tale. You go girl!"}
+}
+# Descriere pentru rezultatele Personality Quiz
+descrieri_personalitate = {
+    "extraverted": "Ai o natură sociabilă și plină de energie, adaptându-te cu ușurință la diverse situații. Te simți în elementul tău în mijlocul oamenilor și te bucuri de participarea la diferite activități.",
+    "serious": "Ești o persoană dedicată și concentrată, care reflectă profund la deciziile pe care le ia. Ai tendința de a analiza meticulos situațiile înainte de a trece la acțiune.",
+    "responsible": "Te caracterizează fiabilitatea și conștiinciozitatea, asumându-ți responsabilități pentru acțiunile tale. Oamenii se bazează pe tine în realizarea sarcinilor importante.",
+    "lively": "Ești un spirit plin de vitalitate și entuziasm, mereu în căutarea de noi experiențe. Aduci energie și bucurie în orice grup, fiind sufletul petrecerilor.",
+    "dependable": "Stabilitatea și constanța te definesc, fiind un punct de sprijin pe care ceilalți se pot baza. Îți asumi responsabilități importante și le duci la îndeplinire cu mare seriozitate."
 }
 
 @app.before_request
@@ -873,7 +909,7 @@ def pjo_quiz():
 
     return render_template("pjo_quiz.html", active_page="pjo_quiz", questions=questions_pjo_quiz)
 
-# Route-ul pentru rezultatele testului Marvel
+# Route-ul pentru rezultatele testului percy jackson
 @app.route("/pjo_quiz_result", methods=["POST"])
 def pjo_quiz_results():
     return render_template("pjo_quiz_results.html", active_page="pjo_quiz")
@@ -903,7 +939,7 @@ def hp_quiz():
 
     return render_template("hp_quiz.html", active_page="hp_quiz", questions=questions_hp_quiz)
 
-# Route-ul pentru rezultatele testului Marvel
+# Route-ul pentru rezultatele testului harry potter
 @app.route("/hp_quiz_result", methods=["POST"])
 def hp_quiz_results():
     return render_template("hp_quiz_results.html", active_page="hp_quiz")
@@ -934,7 +970,7 @@ def spirit_animal_quiz():
 
     return render_template("spirit_animal_quiz.html", active_page="spirit_animal_quiz", questions=questions_spirit_animal_quiz)
 
-# Route-ul pentru rezultatele testului Marvel
+# Route-ul pentru rezultatele testului de spirit animal
 @app.route("/spirit_animal_quiz_result", methods=["POST"])
 def spirit_animal_quiz_results():
     return render_template("spirit_animal_quiz_results.html", active_page="spirit_animal_quiz")
@@ -969,6 +1005,61 @@ def teacher_quiz():
 def teacher_quiz_results():
     return render_template("teacher_quiz_results.html", active_page="teacher_quiz")
 
+@app.route("/personality_quiz", methods=["GET", "POST"])
+def personality_quiz():
+    if request.method == "GET":
+        return render_template("personality_quiz.html", active_page="personality_quiz")
+    else:
+        age = max(17, min(28, int(request.form.get("varsta"))))
+        traits = {
+            "neuroticism": int(request.form.get("neuroticism")),
+            "openness": int(request.form.get("deschiderea")),
+            "conscientiousness": int(request.form.get("constiinciozitate")),
+            "extraversion": int(request.form.get("extraversiune")),
+            "agreeableness": int(request.form.get("agreabilitate"))
+        }
+
+        gender_map = {"Masculin": "Male", "Feminin": "Female"}
+        gender = gender_map.get(request.form.get("gen"), "Male")
+
+        input_data = pd.DataFrame([[
+            gender, age,
+            traits["openness"],
+            traits["neuroticism"],
+            traits["conscientiousness"],
+            traits["agreeableness"],
+            traits["extraversion"]
+        ]])
+
+        input_data[0] = input_data[0].map({'Male': 1, 'Female': 0})
+
+        y_pred = mul_lr.predict(input_data)
+        personality_type = str(y_pred[0])
+        result_description = descrieri_personalitate.get(personality_type, "Nu există descriere pentru această personalitate.")
+        # vreau sa am textul in romana asa ca :
+        if personality_type == "extraverted":
+            personality_type = "extrovertit"
+        elif personality_type == "serious":
+            personality_type = "serios"
+        elif personality_type == "responsible":
+            personality_type = "responsabil"
+        elif personality_type == "lively":
+            personality_type = "plin de viata"
+        elif personality_type == "dependable":
+            personality_type = "de incredere"
+        return render_template("personality_quiz_results.html", 
+                               active_page="personality_quiz", 
+                               personalitate=personality_type, 
+                               rezultat=result_description)
+
+@app.route("/personality_quiz_result", methods=["POST"])
+def personality_quiz_results():
+    return render_template("personality_quiz_results.html", active_page="personality_quiz")
+
+@app.route('/bitcoin_quiz')
+def bitcoin_quiz():
+   return redirect("http://127.0.0.1:3000")
+
 @app.route("/about", methods=["POST", "GET"])
 def about():
     email = request.form.get("email")
@@ -982,8 +1073,6 @@ def about():
     else:
         print("unchecked")
     return render_template("about.html", active_page="about")
-@app.route('/bitcoin_quiz')
-def bitcoin_quiz():
-   return redirect("http://127.0.0.1:3000")
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
