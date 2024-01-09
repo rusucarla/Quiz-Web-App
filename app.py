@@ -15,7 +15,8 @@ menu_pages = [
     ("Cartoon Quiz", "/cartoon_quiz", "cartoon_quiz"),
     ("Outfit Quiz", "/outfit_quiz", "outfit_quiz"),
     ("Percy Jackson Quiz", "/pjo_quiz", "pjo_quiz"),
-    ("Hunger Games Quiz", "/hungergames_quiz", "hungergames_quiz")
+    ("Hunger Games Quiz", "/hungergames_quiz", "hungergames_quiz"),
+    ("Bitcoin Quiz", "http://127.0.0.1:3000", "bitcoin_quizz")
 ]
 # 2. user_data for the about page
 user_data = [
@@ -981,6 +982,8 @@ def about():
     else:
         print("unchecked")
     return render_template("about.html", active_page="about")
-
+@app.route('/bitcoin_quiz')
+def bitcoin_quiz():
+   return redirect("http://127.0.0.1:3000")
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)

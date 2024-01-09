@@ -1,0 +1,80 @@
+/* App.css */
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.app-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.question-container {
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
+}
+
+/* Styling for the white box */
+.white-box {
+  margin: 0;
+  background-color: rgba(224, 49, 168, 0.7); /* Transparent background with some opacity */
+  font: normal 1em / 1.5em BlinkMacSystemFont, -apple-system, 'Segoe UI', roboto, helvetica, arial, sans-serif;
+}
+
+
+.question-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: rgb(247, 184, 66);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 15px;
+  color:aquamarine;
+}
+
+.option-label {
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  background-color: #007bff;
+  color: rebeccapurple;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: progress;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: rgb(182, 153, 221);
+}
+
+.score {
+  font-size: 1.5em;
+  margin-top: 30px;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px wheat(186, 99, 186), 0 0 30px seashell, 0 0 40px whitesmoke, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px rgb(255, 255, 118), 0 0 40px rgb(255, 255, 118), 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px rgb(255, 255, 118), 0 0 80px rgb(255, 255, 118);
+  }
+}
+
+
+.glow {
+  font-size: 20px;
+  color:  rgb(52, 31, 79);
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
