@@ -4,4 +4,7 @@
 <p>
     {{ rezultat }}
 </p>
+<p>Daca vrei sa alfi mai multe despre tipul tau de personalitate, descarca
+PDF-ul gratis</p>
+<a href="{{ url_for('download_pdf', personality=personalitate) }}" class="btn btn-primary">Descarcă Rezultatele PDF</a>
 {% endblock %}

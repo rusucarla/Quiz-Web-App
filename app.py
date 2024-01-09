@@ -1,13 +1,23 @@
 import re
-from flask import render_template, request, jsonify, redirect, request, session, g
+from flask import send_file, render_template, request, jsonify, redirect, request, session, g
 from flask import Flask
 import json
 import pandas as pd
 from sklearn import linear_model
 from sklearn.impute import SimpleImputer
 import numpy as np
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from io import BytesIO
 
 app = Flask(__name__, static_folder="static")
+
+# Setez font-ul pentru PDF
+pdfmetrics.registerFont(TTFont('Montserrat-Regular', 'static/Montserrat-Regular.ttf'))
+pdfmetrics.registerFont(TTFont('Montserrat-Bold', 'static/Montserrat-Bold.ttf'))
+pdfmetrics.registerFont(TTFont('Montserrat-Black', 'static/Montserrat-Black.ttf'))
 
 # Încărcarea datasetului
 data = pd.read_csv('static/dataset.csv')
@@ -31,7 +41,7 @@ mul_lr.fit(maindf, train_y)
 
 
 #  DICTIONARIES
-# 1. menu_pages for the navbar
+# menu_pages for the navbar
 menu_pages = [
     ("Home", "/", "home"),
     ("About", "/about", "about"),
@@ -44,11 +54,11 @@ menu_pages = [
     ("Hunger Games Quiz", "/hungergames_quiz", "hungergames_quiz"),
     ("Bitcoin Quiz", "http://127.0.0.1:3000", "bitcoin_quizz")
 ]
-# 2. user_data for the about page
+# user_data for the about page
 user_data = [
     ("admin", "admin", "checked")
 ]
-# 3. questions_princess_quiz for the princess quiz
+# questions_princess_quiz for the princess quiz
 questions_princess_quiz = [
     {
         "question_text": "Ce nuanță te reprezintă cel mai bine?",
@@ -114,7 +124,7 @@ questions_princess_quiz = [
         ]
     }
 ]
-# 4. description for the princess quiz results
+# description for the princess quiz results
 description_princess_quiz = {
   "Cinderella" : {"description": "Reprezinți esența speranței și a rezilienței. Cu o voință de fier și o inimă plină de bunătate, îți împlinești visurile, indiferent de obstacole. Luminozitatea ta interioară și compasiunea strălucesc, ghidându-i pe cei din jur spre un viitor mai bun."},
   "Ariel" : {"description": "Ești spiritul aventuros al mării, mereu în căutare de noi orizonturi și mistere de dezvăluit. Sensibilitatea și empatia ta profundă te fac să te conectezi cu lumea în moduri unice, iar creativitatea ta debordantă îți colorează fiecare zi."},
@@ -124,7 +134,7 @@ description_princess_quiz = {
   "Rapunzel" : {"description": "O adevărată artistă a vieții, îți țesezi povestea cu fire colorate de curiozitate și creativitate. Sensibilitatea și empatia ta aduc frumusețe în lume, în timp ce spiritul tău aventuros deschide noi drumuri de explorat."},
   "Tiana" : {"description": "Intruchipezi visele și muncă asiduă, fiind un far de determinare și succes. Inteligența și curajul tău sunt pilonii pe care îți construiești viitorul, demonstrând că orice vis poate deveni realitate cu suficient efort și pasiune."}
 }
-# 5. questions_marvel_quiz for the marvel quiz
+# questions_marvel_quiz for the marvel quiz
 questions_marvel_quiz = [
     {
         "question_text": "Care supererou Marvel îți place cel mai mult?",
@@ -181,7 +191,7 @@ questions_marvel_quiz = [
         ]
     }
 ]
-# 6. Informații despre supereroi Marvel
+# Informații despre supereroi Marvel
 marvel_hero_info = {
     "Iron Man": {"description": "Iron Man este un inventator genial și om de afaceri, echipat cu o armură puternică."},
     "Spider-Man": {"description": "Spider-Man este un tânăr erou cu abilități de a se deplasa pe pereți și lansa pânze de păianjen."},
@@ -338,7 +348,7 @@ questions_hungergames_quiz = [
 }
 ]
 
-# 2. descrieri pentru rezultatele Hunger Games quiz
+# descrieri pentru rezultatele Hunger Games quiz
 description_hungergames_quiz = {
     "Katniss": {"description": "Ești ca Katniss - puternic(ă), capabil(ă) să tragi cu arcul și să supraviețuiești în condiții dificile."},
     "Peeta": {"description": "Ești ca Peeta - abil(ă) în negociere și planificare strategică, cu o atitudine cooperativă."},
@@ -406,7 +416,7 @@ questions_outfit_quiz = [
     }
 
 ]
-# 4. description for the princess quiz results
+# description for the princess quiz results
 description_outfit_quiz = {
   "ICONIC" : {"description": "În 2024, vei emana un aer iconic, manifestând eleganță și rafinament. Garderoba ta va conține piese statement, iar prezența ta va rămâne întipărită în memoria celor din jur. Ești un simbol al stilului și eleganței contemporane."},
   "oof" : {"description": "Anul 2024 poate aduce și momente amuzante, dar asta nu îți afectează autenticitatea și umorul. Cu o atitudine relaxată și un strop de haz, vei străluci mereu în orice împrejurare."},
@@ -735,6 +745,74 @@ descrieri_personalitate = {
     "lively": "Ești un spirit plin de vitalitate și entuziasm, mereu în căutarea de noi experiențe. Aduci energie și bucurie în orice grup, fiind sufletul petrecerilor.",
     "dependable": "Stabilitatea și constanța te definesc, fiind un punct de sprijin pe care ceilalți se pot baza. Îți asumi responsabilități importante și le duci la îndeplinire cu mare seriozitate."
 }
+# Idei de cariera pentru tipurile de personalitate
+careers_for_personality = {
+    "extrovertit": [
+        "Vânzări",
+        "Marketing",
+        "Ospitalitate",
+        "Relații Publice",
+        "Divertisment și Mass-Media"
+    ],
+    "serios": [
+        "Cercetare Științifică",
+        "Finanțe și Contabilitate",
+        "Drept și Consultanță",
+        "Inginerie",
+        "Analiză de Date"
+    ],
+    "responsabil": [
+        "Medicină și Asistență Medicală",
+        "Educație și Învățământ",
+        "Administrare Publică",
+        "Servicii Sociale",
+        "Consiliere și Psihologie"
+    ],
+    "plin de viata": [
+        "Arte și Design",
+        "Turism și Călătorii",
+        "Sport și Recreere",
+        "Modă și Stilism",
+        "Organizare de Evenimente"
+    ],
+    "de incredere": [
+        "Inginerie și Tehnologie",
+        "Management de Proiect",
+        "Securitate și Servicii de Urgență",
+        "Logistică și Planificare",
+        "IT și Dezvoltare Software"
+    ]
+}
+# sfaturi de viata pentru tipurile de personalitate
+life_tips_for_personality = {
+    "extrovertit": [
+        "Caută oportunități de networking și socializare pentru a-ți extinde cercul social.",
+        "Implică-te în activități de grup sau evenimente comunitare pentru a-ți satisface nevoia de interacțiune.",
+        "Fii conștient de nevoile celor introvertiți și oferă-le spațiu când este necesar."
+    ],
+    "serios": [
+        "Planifică-ți timpul eficient și stabilește obiective pe termen lung pentru a-ți maximiza productivitatea.",
+        "Găsește timp pentru relaxare și activități recreative pentru a evita epuizarea.",
+        "Fii deschis la noi perspective și idei, chiar dacă ele par să contravină abordării tale analitice."
+    ],
+    "responsabil": [
+        "Dezvoltă-ți abilitățile de organizare și gestionare a timpului pentru a-ți menține responsabilitățile sub control.",
+        "Fii conștient că nu poți controla totul; învață să delegi și să ai încredere în ceilalți.",
+        "Găsește echilibrul între muncă și viața personală pentru a nu te supraîncărca."
+    ],
+    "plin de viata": [
+        "Experimentează și explorează noi hobby-uri și interese pentru a-ți menține entuziasmul.",
+        "Stabilește-ți limite pentru a nu te supraextinde și a te epuiza.",
+        "Canalizează-ți energia și creativitatea în proiecte productive și împlinitoare."
+    ],
+    "de incredere": [
+        "Construiește relații solide, atât în mediul profesional, cât și în cel personal.",
+        "Învață să fii flexibil și deschis la schimbări, chiar dacă preferi stabilitatea.",
+        "Folosește-ți abilitățile de a fi de încredere și consecvent pentru a te dezvolta în roluri de lider."
+    ]
+}
+
+
 
 @app.before_request
 def init_menu():
@@ -1055,6 +1133,66 @@ def personality_quiz():
 @app.route("/personality_quiz_result", methods=["POST"])
 def personality_quiz_results():
     return render_template("personality_quiz_results.html", active_page="personality_quiz")
+
+def wrap_text(draw_obj, text, width, start_height):
+    words = text.split()
+    current_text = ""
+    for word in words:
+        if draw_obj.stringWidth(current_text + word, "Montserrat", 12) < width:
+            current_text += word + " "
+        else:
+            draw_obj.drawString(100, start_height, current_text)
+            start_height -= 20  # Merg pe urmatorul rand
+            current_text = word + " "
+    draw_obj.drawString(100, start_height, current_text)
+    return start_height - 20
+
+@app.route('/download_pdf/<personality>')
+def download_pdf(personality):
+    buffer = BytesIO()
+    p = canvas.Canvas(buffer, pagesize=A4)
+    p.setFont("Montserrat-Regular", 12)
+    width, height = A4  # Dimensiunile paginii A4
+
+    y_position = height - 40  # Incep de o distanta respectabila
+    
+    # Vreau sa pun titul si sa il fac black
+    p.setFont("Montserrat-Black", 18)
+    p.drawString(100, y_position, "Rezultate test personalitate:")
+    
+    # Adăugarea descrierii personalitatii
+    p.setFont("Montserrat-Bold", 16)
+    y_position -= 20  # Spațiu intre titlu si descriere
+    y_position = wrap_text(p, f"Tipul de personalitate: {personality}", width - 200, y_position)
+    
+    p.setFont("Montserrat-Regular", 12) # Revin la fontul normal
+    
+    y_position -= 20  # Spatiu intre descriere si sfaturi
+
+    # Adaugarea sugestiilor de cariere
+    y_position = wrap_text(p, "Carieri recomandate:", width - 200, y_position)
+    for career in careers_for_personality.get(personality, []):
+        y_position = wrap_text(p, f"- {career}", width - 200, y_position)
+        if y_position < 40:  # Verific daca este spatiu suficient pe pagina
+            p.showPage()
+            p.setFont("Montserrat-Regular", 12)
+            y_position = height - 40
+
+    # Adaugarea sfaturilor de viata
+    y_position -= 20  # Spatiu intre sectiuni
+    y_position = wrap_text(p, "Sfaturi de viață:", width - 200, y_position)
+    for tip in life_tips_for_personality.get(personality, []):
+        y_position = wrap_text(p, f"- {tip}", width - 200, y_position)
+        if y_position < 40:  # Verific daca este spatiu suficient pe pagina
+            p.showPage()
+            p.setFont("Montserrat-Regular", 12)
+            y_position = height - 40
+
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+    return send_file(buffer, as_attachment=True, download_name=f'{personality}_ghid_gratis.pdf', mimetype='application/pdf')
 
 @app.route('/bitcoin_quiz')
 def bitcoin_quiz():
