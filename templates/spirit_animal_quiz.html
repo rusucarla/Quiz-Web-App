@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+  body {
+    font-family: 'Demigod', sans-serif; /* Font Demigod sau alt font cu tematică Percy Jackson */
+    background-color: #2c3e50; /* Culoare de fundal specifică Spirit Animal */
+    text-align: center;
+    margin: 0;
+    color: #ffffff; /* Culoare text alb */
+  }
+
+  .quiz-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #34495e; /* Culoare container specifică Spirit Animal */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    color: #3498db; /* Culoare albastru deschis specifică Spirit Animal */
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff; /* Culoare text alb */
+  }
+
+  .options-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .option {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px;
+    margin: 10px;
+    background-color: #3498db; /* Albastru deschis specific Spirit Animal */
+    color: #ffffff; /* Culoare text alb */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  label:hover {
+    background-color: #2980b9; /* Ton mai închis la hover */
+  }
+
+  label:active {
+    background-color: #1f618d; /* Ton mai închis la apăsare */
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: #154360; /* Culoare diferită pentru opțiunea selectată */
+  }
+
+  button {
+    background-color: #3498db; /* Albastru deschis specific Spirit Animal pentru buton Submit */
+    color: #ffffff; /* Culoare text alb */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  button:hover {
+    background-color: #2980b9; /* Ton mai închis la hover */
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="quiz-container">
+  <h1>Spirit Animal Quiz</h1>
+  <form method="post" action="/spirit_animal_quiz">
+    {% for question in questions %}
+    {% set current_index = loop.index0 %}
+    <div class="mb-3">
+      <p>{{ question['question_text'] }}</p>
+      <div class="options-container">
+        {% for option in question['options'] %}
+        <div class="option">
+          <input type="radio" name="question_{{ current_index }}"
+            value="{{ option['option_text'] }}"
+            id="option_{{ current_index }}_{{ loop.index }}">
+          <label for="option_{{ current_index }}_{{ loop.index }}">{{
+            option['option_text'] }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    <button type="submit">Descoperă-ți animalul spiritual</button>
+  </form>
+</div>
+{% endblock %}

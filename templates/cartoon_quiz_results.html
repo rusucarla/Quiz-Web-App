@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+  body {
+    font-family: 'Comic Sans MS', cursive; /* Stilul fontului pentru desene animate */
+    background-color: #49c7f5; /* Gri deschis pentru fundal */
+    color: #000000; /* Text negru */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #f7ea5a; /* Fundal alb pentru container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Umbra cu culoare neagră */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff0000; /* Roșu aprins pentru titlu */
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+    color: #0a0238; /* Albastru intens pentru descriere */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-container">
+  <h1 class="text-body-emphasis">Semeni cu {{ max_character }}</h1>
+  <div class="result">
+    {% if max_character == "Tom" %}
+      <img src="https://images.hobbydb.com/processed_uploads/subject_photo/subject_photo/image/37012/1518467482-3845-9947/Tom_20Cat_20_Tom_20And_20Jerry__large.jpg" alt="Tom" width="400" height="400">
+    {% elif max_character == "Jerry" %}
+      <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Jerry_Mouse.png" alt="Jerry" width="400" height="400">
+    {% elif max_character == "BugsBunny" %}
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/17/Bugs_Bunny.svg/1200px-Bugs_Bunny.svg.png" alt="Bugs Bunny" width="400" height="400">
+    {% elif max_character == "Tweety" %}
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Tweety.svg/1200px-Tweety.svg.png" alt="Tweety" width="400" height="400">
+    {% endif %}
+    <h4>{{ max_character_description }}</h4>
+  </div>
+</div>
+{% endblock %}

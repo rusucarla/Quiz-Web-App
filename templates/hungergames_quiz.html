@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #222;
+    text-align: center;
+    margin: 0;
+  }
+
+  .quiz-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+
+  .options-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .option {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px;
+    margin: 10px;
+    background-color: #ff9900; /* Portocaliu, culoarea stilului Hunger Games */
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  label:hover {
+    background-color: #cc6600; /* Ton mai închis de portocaliu la hover */
+  }
+
+  label:active {
+    background-color: #996633; /* Ton mai închis la apăsare */
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: #b30000; /* Culoare diferită pentru opțiunea selectată */
+  }
+
+  button {
+    background-color: #b30000; /* Culoare buton Submit */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #8c0000; /* Ton mai închis la hover */
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="quiz-container">
+  <h1>Hunger Games Quiz</h1>
+  <form method="post" action="/hungergames_quiz">
+    {% for question in questions %}
+    {% set current_index = loop.index0 %}
+    <div class="mb-3">
+      <p>{{ question['question_text'] }}</p>
+      <div class="options-container">
+        {% for option in question['options'] %}
+        <div class="option">
+          <input type="radio" name="question_{{ current_index }}"
+            value="{{ option['option_text'] }}"
+            id="option_{{ current_index }}_{{ loop.index }}">
+          <label for="option_{{ current_index }}_{{ loop.index }}">{{
+            option['option_text'] }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+</div>
+{% endblock %}

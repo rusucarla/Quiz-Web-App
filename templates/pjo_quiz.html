@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+  body {
+    font-family: 'Demigod', sans-serif; /* Font Demigod sau alt font cu tematică Percy Jackson */
+    background-color: #3a4d1c; /* Culoare de fundal specifică Percy Jackson */
+    text-align: center;
+    margin: 0;
+    color: #ffffff; /* Culoare text alb */
+  }
+
+  .quiz-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #50632b; /* Culoare container specifică Percy Jackson */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    color: #ffd700; /* Culoare auriu specifică Percy Jackson */
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff; /* Culoare text alb */
+  }
+
+  .options-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .option {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px;
+    margin: 10px;
+    background-color: #ffd700; /* Auriu specific Percy Jackson */
+    color: #222; /* Culoare text întunecată */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  label:hover {
+    background-color: #b38600; /* Ton mai închis la hover */
+  }
+
+  label:active {
+    background-color: #8c6d00; /* Ton mai închis la apăsare */
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: #1a0d00; /* Culoare diferită pentru opțiunea selectată */
+  }
+
+  button {
+    background-color: #ffd700; /* Auriu specific Percy Jackson pentru buton Submit */
+    color: #222; /* Culoare text întunecată */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  button:hover {
+    background-color: #b38600; /* Ton mai închis la hover */
+  }
+</style>
+{% endblock %}
+{% block content %}
+<div class="quiz-container">
+  <h1>Percy Jackson Demigod Quiz</h1>
+  <form method="post" action="/pjo_quiz">
+    {% for question in questions %}
+    {% set current_index = loop.index0 %}
+    <div class="mb-3">
+      <p>{{ question['question_text'] }}</p>
+      <div class="options-container">
+        {% for option in question['options'] %}
+        <div class="option">
+          <input type="radio" name="question_{{ current_index }}"
+            value="{{ option['option_text'] }}"
+            id="option_{{ current_index }}_{{ loop.index }}">
+          <label for="option_{{ current_index }}_{{ loop.index }}">{{
+            option['option_text'] }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+    <button type="submit">Descopera-ti parintele zeu</button>
+  </form>
+</div>
+{% endblock %}

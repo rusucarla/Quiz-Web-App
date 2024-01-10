@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+  body {
+    font-family: 'Wizard', sans-serif; /* Font Wizard sau alt font cu tematică Harry Potter */
+    background-color: #2b3945; /* Culoare de fundal specifică Harry Potter */
+    color: #ffffff; /* Culoare text alb */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #374a58; /* Culoare container specifică Harry Potter */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ae8e5b; /* Culoare auriu specifică Harry Potter */
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+    color: #ae8e5b; /* Culoare auriu specifică Harry Potter */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-container">
+  <h1 class="text-body-emphasis">Casa ta Hogwarts ar fi {{ max_hero }}</h1>
+  <div class="result">
+    {% if max_hero == "Gryffindor" %}
+      <img src="https://w7.pngwing.com/pngs/768/912/png-transparent-gryffindor-thumbnail.png" alt="Gryffindor">
+    {% elif max_hero == "Slytherin" %}
+      <img src="https://i.pinimg.com/originals/eb/74/a4/eb74a45a16792919d780d8406ad9c8c5.png" alt="Slytherin">
+    {% elif max_hero == "Ravenclaw" %}
+      <img src="https://i.pinimg.com/originals/e8/ea/d9/e8ead9ebffe0f866ca50ac4dc803bd1b.jpg" alt="Ravenclaw">
+    {% elif max_hero == "Hufflepuff" %}
+      <img src="https://w7.pngwing.com/pngs/537/516/png-transparent-huffle-puff-logo-illustration-helga-hufflepuff-hogwarts-harry-potter-and-the-deathly-hallows-gryffindor-harry-potter-helga-hufflepuff-hogwarts-harry-potter-and-the-deathly-hallows-thumbnail.png" alt="Hufflepuff">
+    {% endif %}
+    <h4>{{ max_hero_description }}</h4>
+  </div>
+</div>
+
+{% endblock %}

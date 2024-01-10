@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+  body {
+    font-family: 'Marvel', sans-serif; /* Font Marvel sau alt font superhero */
+    background-color: #0c0c0c; /* Culoare de fundal întunecată */
+    color: #ffffff; /* Culoare text alb */
+    text-align: center;
+    margin: 0;
+  }
+
+  .result-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #1c1c1c; /* Culoare container întunecată */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Umbra cu culoare albă */
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .result img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .result h4 {
+    font-size: 18px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="result-container">
+  <h1 class="text-body-emphasis">Semeni cu {{ max_hero }}</h1>
+  <div class="result">
+    {% if max_hero == "Iron Man" %}
+      <img src="https://static.printler.com/cache/4/e/f/2/f/9/4ef2f983834bdcf676c44dad74b16c0d7270c40f.jpg" alt="Iron Man">
+    {% elif max_hero == "Spider-Man" %}
+      <img src="https://moviesmedia.ign.com/movies/image/object/033/033717/spider-man_poster.jpg" alt="Spider-Man">
+    {% elif max_hero == "Captain America" %}
+      <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/CaptainAmericaHughes.jpg" alt="Captain America">
+    {% elif max_hero == "Thor" %}
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Chris_Hemsworth_as_Thor.jpg/220px-Chris_Hemsworth_as_Thor.jpg" alt="Thor">
+    {% endif %}
+    <h4>{{ max_hero_description }}</h4>
+  </div>
+</div>
+{% endblock %}
