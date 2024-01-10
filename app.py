@@ -111,7 +111,7 @@ questions_princess_quiz = [
             {"option_text": "Dramă", "image_url": "../static/images/princess_quiz/question_6/drama.jpg", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 1}},
             {"option_text": "Comedie", "image_url": "../static/images/princess_quiz/question_6/comedie.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 2}},
             {"option_text": "Aventură", "image_url": "../static/images/princess_quiz/question_6/aventura.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 1}},
-            {"option_text": "SF", "image_url": "../static/images/princess_quiz/question_6/SF.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}}
+            {"option_text": "SF", "image_url": "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?q=80&w=1942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 2}}
         ]
     },
     {
