@@ -21,7 +21,7 @@ class Score extends Component {
             message = 'Default Image';
         }
         return (
-            <div>
+            <div className="glow">
                 <h2>Results</h2>
                 <h4>Your score: {score}</h4>
                 
