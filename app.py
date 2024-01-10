@@ -72,37 +72,37 @@ questions_princess_quiz = [
     {
         "question_text": "Care dintre aceste activități îți umple sufletul de bucurie?",
         "options": [
-            {"option_text": "Cântatul sub stele", "image_url": "../static/images/princess_quiz/question_2/cantat.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
-            {"option_text": "Cititul în liniște", "image_url": "../static/images/princess_quiz/question_2/citit.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 1}},
-            {"option_text": "Dansat cu pasiune", "image_url": "../static/images/princess_quiz/question_2/dansat.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
-            {"option_text": "Gătitul unor delicii", "image_url": "../static/images/princess_quiz/question_2/gatit.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}}
+            {"option_text": "Cântatul sub stele", "image_url": "https://images.unsplash.com/photo-1453090927415-5f45085b65c0?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Cititul în liniște", "image_url": "https://images.unsplash.com/photo-1630343710506-89f8b9f21d31?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Dansat cu pasiune", "image_url": "https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 3, "Tiana": 1}},
+            {"option_text": "Gătitul unor delicii", "image_url": "https://images.unsplash.com/photo-1528712306091-ed0763094c98?q=80&w=1940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}}
         ]
     },
     {
         "question_text": "Care este locul tău preferat pentru vacanță?",
         "options": [
-            {"option_text": "Plajă exotică", "image_url": "../static/images/princess_quiz/question_3/plaja_exotica.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
-            {"option_text": "Munte", "image_url": "../static/images/princess_quiz/question_3/munte.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
-            {"option_text": "Oraș aglomerat", "image_url": "../static/images/princess_quiz/question_3/oras_aglomerat.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}},
-            {"option_text": "Sat liniștit", "image_url": "../static/images/princess_quiz/question_3/sat_linistit.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
+            {"option_text": "Plajă exotică", "image_url": "https://images.unsplash.com/photo-1601629665203-f9f2b8d07019?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Munte", "image_url": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Oraș aglomerat", "image_url": "https://images.unsplash.com/photo-1573456373835-579c408de263?q=80&w=2140&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}},
+            {"option_text": "Sat liniștit", "image_url": "https://images.unsplash.com/photo-1469806924269-a2a59cba7549?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
         ]
     },
     {
         "question_text": "Ce fel de muzică îți place cel mai mult?",
         "options": [
-            {"option_text": "Pop", "image_url": "../static/images/princess_quiz/question_4/muzica_pop.jpg", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
-            {"option_text": "Rock", "image_url": "../static/images/princess_quiz/question_4/muzica_rock.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 2}},
-            {"option_text": "Clasică", "image_url": "../static/images/princess_quiz/question_4/muzica_clasica.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
-            {"option_text": "Jazz", "image_url": "../static/images/princess_quiz/question_4/muzica_jazz.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}}
+            {"option_text": "Pop", "image_url": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 3, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Rock", "image_url": "https://images.unsplash.com/photo-1546708770-589dab7b22c7?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Clasică", "image_url": "https://images.unsplash.com/photo-1519683109079-d5f539e1542f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Jazz", "image_url": "https://images.unsplash.com/photo-1541804627596-3b5b9ef58c93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 3}}
         ]
     },
     {
         "question_text": "Ce superputere ai vrea să ai?",
         "options": [
-            {"option_text": "Invizibilitate", "image_url": "../static/images/princess_quiz/question_5/invizibilitate.jpg", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
-            {"option_text": "Zbor", "image_url": "../static/images/princess_quiz/question_5/zbor.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
-            {"option_text": "Superforță", "image_url": "../static/images/princess_quiz/question_5/superforta.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
-            {"option_text": "Teleportare", "image_url": "../static/images/princess_quiz/question_5/teleportare.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
+            {"option_text": "Invizibilitate", "image_url": "https://images.unsplash.com/photo-1531685250784-7569952593d2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Zbor", "image_url": "https://images.unsplash.com/photo-1531275467514-94da595cf8d7?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Superforță", "image_url": "https://images.unsplash.com/photo-1612099197070-4db4ab9abcd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGR1bWJiZWxsc3xlbnwwfDF8MHx8fDA%3D", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Teleportare", "image_url": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11a0cc95-aa8d-48be-bc47-e55baa6ecacc/dgdszs4-b941750d-8ddd-4963-abe9-d3ad33aa9e15.jpg/v1/fill/w_1280,h_719,q_75,strp/the_teleportation_era_by_mholtsmeier_dgdszs4-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzE5IiwicGF0aCI6IlwvZlwvMTFhMGNjOTUtYWE4ZC00OGJlLWJjNDctZTU1YmFhNmVjYWNjXC9kZ2RzenM0LWI5NDE3NTBkLThkZGQtNDk2My1hYmU5LWQzYWQzM2FhOWUxNS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.qAqrnfbn1xM3_P44XRqe8Nav9OPyCSdPPXxObu6VW00", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
         ]
     },
     {
@@ -117,10 +117,10 @@ questions_princess_quiz = [
     {
         "question_text": "Ce ai face într-o zi ploioasă?",
         "options": [
-            {"option_text": "Citit o carte", "image_url": "../static/images/princess_quiz/question_7/citit_o_carte.jpg", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
-            {"option_text": "Uitat la ploaie", "image_url": "../static/images/princess_quiz/question_7/uitat_la_ploaie.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
-            {"option_text": "Făcut un puzzle", "image_url": "../static/images/princess_quiz/question_7/facut_un_puzzle.jpg", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
-            {"option_text": "Gătit ceva bun", "image_url": "../static/images/princess_quiz/question_7/gatit_ceva_bun.jpg", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
+            {"option_text": "Citit o carte", "image_url": "https://images.unsplash.com/photo-1604882737206-8a000c03d8fe?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 2, "Belle": 1, "Mulan": 1, "Elsa": 3, "Rapunzel": 1, "Tiana": 1}},
+            {"option_text": "Uitat la ploaie", "image_url": "https://images.unsplash.com/photo-1521061887553-5e20fcd813b8?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 3, "Mulan": 1, "Elsa": 1, "Rapunzel": 2, "Tiana": 1}},
+            {"option_text": "Făcut un puzzle", "image_url": "https://images.unsplash.com/photo-1590146758445-40be7019507d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 2, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 2, "Rapunzel": 1, "Tiana": 2}},
+            {"option_text": "Gătit ceva bun", "image_url": "https://images.unsplash.com/photo-1528712306091-ed0763094c98?q=80&w=1940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "score": {"Cinderella": 1, "Ariel": 1, "Belle": 1, "Mulan": 1, "Elsa": 1, "Rapunzel": 3, "Tiana": 2}}
         ]
     }
 ]
