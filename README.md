@@ -67,3 +67,37 @@ pentru ca asa e frumos).
 Am avut o mica problema cu Jinja2 cand trebuia sa afiseze intrebarile si
 raspunsurile si sincer am rezolvat-o cu CTRL+C si CTRL+V. Am incercat sa
 reporduc problema si nu am reusit, deci nu stiu exact ce s-a intamplat.
+### Partea de react 
+1) Asigura-te ca ai Nodejs instalat. Mai jos gasesti niste tutoriale utile:
+<br>
+https://www.youtube.com/watch?v=PNAnLczSBmQ&t=0s
+<br>
+Daca lucrati pe WSL/Linux/Mac :
+<br>
+https://www.youtube.com/watch?v=R73JI8rwkKc
+
+2) Inapoi in proiect rulati urm :
+<br>
+(Daca aveti folderul node_modules stergeti-l nu dati commit cu el ca o ia razna git)
+<br><br>
+```
+cd bitcoin_quizz
+npm install 
+npm start
+```
+<br><br>
+Trebuie sa ii dati npm start ca sa il vada si flasku. Apoi
+```
+cd ..
+python3 app.py
+```
+Si selectati din site quizul
+<H4>De ce nu am folosit react build pt deployment?</H4>
+<br>
+Nu merge comanda
+
+```
+serve -h
+```  
+chiar daca l-am instalat.
+<br>
