@@ -61,3 +61,9 @@ alta tematica cromatica).
 Am folosit si un pic de javascript pentru a asigura ca utilizatorul vede clar ce
 raspuns a ales (evident, alta culoare de highlight si select la fiecare quiz -
 pentru ca asa e frumos).
+
+### Dificultati intampinate
+
+Am avut o mica problema cu Jinja2 cand trebuia sa afiseze intrebarile si
+raspunsurile si sincer am rezolvat-o cu CTRL+C si CTRL+V. Am incercat sa
+reporduc problema si nu am reusit, deci nu stiu exact ce s-a intamplat.

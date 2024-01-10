@@ -1138,7 +1138,7 @@ def wrap_text(draw_obj, text, width, start_height):
     words = text.split()
     current_text = ""
     for word in words:
-        if draw_obj.stringWidth(current_text + word, "Montserrat", 12) < width:
+        if draw_obj.stringWidth(current_text + word, "Montserrat-Regular", 12) < width:
             current_text += word + " "
         else:
             draw_obj.drawString(100, start_height, current_text)
@@ -1158,7 +1158,7 @@ def download_pdf(personality):
     
     # Vreau sa pun titul si sa il fac black
     p.setFont("Montserrat-Black", 18)
-    p.drawString(100, y_position, "Rezultate test personalitate:")
+    p.drawString(100, y_position, "Rezultate test personalitate")
     
     # Adăugarea descrierii personalitatii
     p.setFont("Montserrat-Bold", 16)
