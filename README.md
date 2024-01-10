@@ -39,7 +39,7 @@ Am folosit dictionare json pentru a stoca intrebarile si raspunsurile. Pe langa
 acestea, mai avem si descrierile pentru rezultatele quiz-ului.
 
 Mai "special" este quiz-ul de personalitate, pentru care am folosit si
-componente din ce am putea numi machine learning. Am folosit un model (gasit : <https://github.com/thenithinbalaji/5Personalities>) pentru a prezice rezultatul in functie de raspunsurile utilizatorului.
+componente din ce am putea numi machine learning. Am folosit un model (link : [5Personalities](https://github.com/thenithinbalaji/5Personalities)) pentru a prezice rezultatul in functie de raspunsurile utilizatorului.
 Modelul este unul simplut, dar care functioneaza destul de bine.
 
 Pentru a crea atmosfera autentica a unui quiz de personalitate, am folosit si
@@ -67,3 +67,28 @@ pentru ca asa e frumos).
 Am avut o mica problema cu Jinja2 cand trebuia sa afiseze intrebarile si
 raspunsurile si sincer am rezolvat-o cu CTRL+C si CTRL+V. Am incercat sa
 reporduc problema si nu am reusit, deci nu stiu exact ce s-a intamplat.
+
+## Instuctiuni rulare/folosire
+
+Pentru a deschide pagina web cu quizurile, se ruleaza comanda python3 app.py
+in folderul Quiz-Web-App.
+Quizul 'bitcoin_quizz' se ruleaza separat:
+
+- din folderul bitcoin_quizz se dau comenzile npm install si npm start
+- se ruleaza python3 app.py
+
+## Contributii individuale
+
+- Banu Daria
+  - partile de React
+
+- Iordache Ioana
+  - frontend - intregul proiect
+
+- Mihai Alexia
+  - implementarea unor quizuri (backend)
+
+- Rusu Carla
+  - implementarea unor quizuri (backend)
+  - functionalitatile legate de reportlab
+  - quiz-ul de personalitate (Machine Learning)

@@ -64,7 +64,6 @@ import Question from "./Components/Question";
 import qBank from "./Components/QuestionBank";
 import Score from "./Components/Score";
 import "./App.css";
-import Fireworks from "react-fireworks";
 //import backgroundImage from "https://assets.stickpng.com/thumbs/5845e614fb0b0755fa99d7e8.png";
 const backgroundImageUrls = [
 	"url('https://picsum.photos/2048/1024')",
